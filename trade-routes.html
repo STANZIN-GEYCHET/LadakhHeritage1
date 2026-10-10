@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10110f">
+<title>Trade Routes of Ladakh — Where Worlds Met</title>
+<meta name="description" content="Explore how the Silk Route shaped Ladakh's settlements, trade, culture and history.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #10110f;
+    --panel: #191a17;
+    --gold: #d6b77b;
+    --cream: #f1eadc;
+    --muted: #aaa69b;
+    --line: rgba(241,234,220,.15);
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    animation: pageEnter .7s ease both;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+@keyframes pageEnter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* NAVIGATION */
+
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
+    padding: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(16,17,15,.76);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+.logo small {
+    display: block;
+    margin-top: -7px;
+    font: 8px 'DM Sans', sans-serif;
+    letter-spacing: 4px;
+    color: var(--muted);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    color: #ddd8cd;
+    transition: color .3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+
+.menu-toggle {
+    display: none;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--cream);
+    padding: 8px 12px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 150px 9% 100px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        url("images/map.jpg")
+        center 48% / cover no-repeat;
+    transform: scale(1.04);
+    animation: heroZoom 15s ease-out forwards;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(90deg, rgba(10,12,12,.83), rgba(10,12,12,.2) 85%),
+        linear-gradient(0deg, var(--bg), transparent 65%);
+}
+
+@keyframes heroZoom {
+    to { transform: scale(1); }
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: rise 1s ease both;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(58px, 10vw, 125px);
+    font-weight: 400;
+    line-height: .91;
+    letter-spacing: -3px;
+    margin: 25px 0;
+}
+
+.hero h1 em {
+    color: var(--gold);
+    font-weight: 400;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: #ddd7ca;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.primary-link {
+    display: inline-block;
+    padding: 14px 22px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background .3s, color .3s, transform .3s;
+}
+
+.primary-link:hover {
+    background: var(--gold);
+    color: #111;
+    transform: translateY(-3px);
+}
+
+.hero-note {
+    color: #d1c9bb;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* GENERAL SECTIONS */
+
+section.content-section {
+    padding: 115px 9%;
+}
+
+.section-head {
+    max-width: 750px;
+    margin-bottom: 55px;
+}
+
+.section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.02;
+    margin: 18px 0;
+}
+
+.section-head h2 em { color: var(--gold); }
+
+.section-head p {
+    color: var(--muted);
+    max-width: 630px;
+    font-size: 14px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ROUTE NETWORK */
+
+.routes-section { background: #151612; }
+
+.route-layout {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.route-visual {
+    position: relative;
+    min-height: 440px;
+    overflow: hidden;
+    background:
+        linear-gradient(0deg, rgba(12,13,12,.55), transparent),
+        url("images/khardungla.jpg") center / cover;
+}
+
+.route-visual::after {
+    content: "LADAKH  /  CENTRAL ASIA";
+    position: absolute;
+    left: 25px;
+    bottom: 22px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.route-visual svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.route-path {
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    transition: stroke-dashoffset 2.5s ease;
+}
+
+.route-visual.visible .route-path {
+    stroke-dashoffset: 0;
+}
+
+.route-copy h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+
+.route-copy p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.route-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 28px;
+}
+
+.route-list li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: #e8dfce;
+}
+
+.route-list span {
+    color: var(--gold);
+    display: inline-block;
+    min-width: 95px;
+}
+
+/* SETTLEMENTS */
+
+.settlement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.settlement-card {
+    min-height: 300px;
+    padding: 28px;
+    background: var(--panel);
+    border: 1px solid rgba(255,255,255,.07);
+    transition: transform .4s, border-color .4s;
+}
+
+.settlement-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(214,183,123,.5);
+}
+
+.card-number {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.settlement-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    font-weight: 400;
+    margin: 35px 0 12px;
+}
+
+.settlement-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* NUBRA FEATURE */
+
+.nubra-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(13,15,14,.96), rgba(13,15,14,.7)),
+        url("images/silkn.jpg") center / cover;
+}
+
+.nubra-layout {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.nubra-title {
+    position: sticky;
+    top: 120px;
+}
+
+.nubra-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: .98;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.nubra-title h2 em { color: var(--gold); }
+
+.nubra-title p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.village {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.village:last-child { border-bottom: 0; }
+
+.village-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--gold);
+}
+
+.village h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.village p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* GOODS */
+
+.goods-section { background: #e9e0cf; color: #25251f; }
+
+.goods-section .eyebrow { color: #8a6a36; }
+
+.goods-section .section-head p { color: #686457; }
+
+.goods-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid rgba(37,37,31,.22);
+    border-bottom: 1px solid rgba(37,37,31,.22);
+}
+
+.good {
+    padding: 28px 22px;
+    border-right: 1px solid rgba(37,37,31,.17);
+}
+
+.good:last-child { border-right: 0; }
+
+.good span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8a6a36;
+}
+
+.good h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 500;
+    margin: 14px 0 8px;
+}
+
+.good p {
+    color: #686457;
+    font-size: 12px;
+}
+
+/* CULTURAL EXCHANGE */
+
+.exchange-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.exchange-quote {
+    border-left: 1px solid var(--gold);
+    padding: 8px 0 8px 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.2;
+}
+
+.exchange-quote em { color: var(--gold); }
+
+.exchange-copy p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* LEGACY */
+
+.legacy {
+    text-align: center;
+    padding: 125px 9%;
+    background:
+        linear-gradient(0deg, rgba(11,13,12,.95), rgba(11,13,12,.7)),
+        url("images/peoplesilk.jpg") center 60% / cover;
+}
+
+.legacy .section-head {
+    margin: 0 auto 35px;
+}
+
+.legacy .section-head p { margin: 0 auto; }
+
+.legacy h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.legacy h2 em { color: var(--gold); }
+
+.legacy-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 28px 9%;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+footer a { color: var(--gold); }
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .navbar { padding: 0 5%; }
+
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 9px; letter-spacing: 1px; }
+
+    section.content-section { padding: 85px 6%; }
+
+    .route-layout,
+    .nubra-layout,
+    .exchange-layout { grid-template-columns: 1fr; gap: 35px; }
+
+    .nubra-title { position: static; }
+
+    .settlement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .goods-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .good:nth-child(2) { border-right: 0; }
+    .good:nth-child(-n+2) { border-bottom: 1px solid rgba(37,37,31,.17); }
+}
+
+@media (max-width: 650px) {
+    .navbar { height: 70px; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 18px 7% 25px;
+        background: rgba(16,17,15,.98);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 11px; }
+
+    .hero {
+        min-height: 92svh;
+        padding: 130px 7% 65px;
+    }
+
+    .hero h1 { letter-spacing: -1px; }
+
+    .hero-description { font-size: 13px; }
+
+    .hero-note { width: 100%; }
+
+    section.content-section { padding: 75px 7%; }
+
+    .route-visual { min-height: 300px; }
+
+    .settlement-grid { grid-template-columns: 1fr; }
+
+    .settlement-card { min-height: 230px; }
+
+    .goods-grid { grid-template-columns: 1fr 1fr; }
+
+    .good { padding: 22px 14px; }
+
+    .good h3 { font-size: 24px; }
+
+    .legacy { padding: 85px 7%; }
+
+    footer { padding: 25px 7%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+    <a href="index.html" class="logo">
+        LADAKH
+        <small>HERITAGE & HISTORY</small>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">HOME</a>
+        <a href="explore.html">EXPLORE</a>
+        <a href="history.html">HISTORY</a>
+        <a href="trade-routes.html" class="active">TRADE ROUTES</a>
+        <a href="culture.html">CULTURE</a>
+        <a href="gallery.html">GALLERY</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+    <div class="hero-content">
+        <span class="eyebrow">A crossroads of civilisations</span>
+
+        <h1>Where<br>worlds <em>met.</em></h1>
+
+        <p class="hero-description">
+            Across the high passes of the Himalayas, caravans connected
+            Ladakh with Kashmir, Tibet and Central Asia. The Silk Route
+            was not simply a path for goods. It was a passage through
+            which communities, knowledge and cultures encountered one another.
+        </p>
+
+        <div class="hero-bottom">
+            <a class="primary-link" href="#journey">
+                Follow the old routes &nbsp; ↓
+            </a>
+            <span class="hero-note">LEH · NUBRA · KARAKORAM</span>
+        </div>
+    </div>
+</section>
+
+<!-- ROUTE NETWORK -->
+<section class="content-section routes-section" id="journey">
+    <div class="section-head reveal">
+        <span class="eyebrow">01 / The network</span>
+        <h2>More than one road.<br><em>A world of connections.</em></h2>
+        <p>
+            The Silk Route was a network of trading corridors stretching
+            across Asia. Ladakh became an important link in the overland
+            exchange between South Asia, Tibet and Central Asia because
+            its mountain passes connected distant regions.
+        </p>
+    </div>
+
+    <div class="route-layout">
+        <div class="route-visual reveal">
+            <svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid meet"
+                 role="img" aria-label="Illustrative lines showing connections between Ladakh and neighbouring regions">
+                <defs>
+                    <radialGradient id="routeGlow">
+                        <stop offset="0%" stop-color="#d6b77b" stop-opacity=".35"/>
+                        <stop offset="100%" stop-color="#d6b77b" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+
+                <circle cx="300" cy="210" r="115" fill="url(#routeGlow)"/>
+
+                <g fill="none" stroke="#d6b77b" stroke-width="1.6"
+                   stroke-linecap="round">
+                    <path class="route-path" d="M300 210 Q200 135 115 82"/>
+                    <path class="route-path" d="M300 210 Q420 130 490 90"/>
+                    <path class="route-path" d="M300 210 Q190 300 110 350"/>
+                    <path class="route-path" d="M300 210 Q415 290 485 355"/>
+                </g>
+
+                <g fill="#d6b77b">
+                    <circle cx="300" cy="210" r="6"/>
+                    <circle cx="115" cy="82" r="4"/>
+                    <circle cx="490" cy="90" r="4"/>
+                    <circle cx="110" cy="350" r="4"/>
+                    <circle cx="485" cy="355" r="4"/>
+                </g>
+
+                <g fill="#f1eadc" font-family="DM Sans, sans-serif"
+                   font-size="12" letter-spacing="1">
+                    <text x="300" y="188" text-anchor="middle">LADAKH</text>
+                    <text x="90" y="63">KASHMIR</text>
+                    <text x="435" y="70">CENTRAL ASIA</text>
+                    <text x="70" y="378">SOUTH ASIA</text>
+                    <text x="470" y="382" text-anchor="middle">TIBET</text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="route-copy reveal">
+            <h3>Position shaped<br>possibility.</h3>
+            <p>
+                Ladakh lay between high mountain ranges, but those same
+                mountains contained passes that linked different worlds.
+                Merchants travelled in caravans, often during the warmer
+                months when difficult routes became more accessible.
+            </p>
+            <p>
+                Leh developed into a major trading centre where merchants
+                could meet, exchange goods, arrange transport and continue
+                their journeys in different directions.
+            </p>
+
+            <ul class="route-list">
+                <li><span>North</span> Yarkand and Central Asian markets</li>
+                <li><span>South</span> Kashmir and the Indian plains</li>
+                <li><span>East</span> Tibet and its trading centres</li>
+                <li><span>Across Ladakh</span> Nubra and the Karakoram passes</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- IMPACT ON SETTLEMENTS -->
+<section class="content-section">
+    <div class="section-head reveal">
+        <span class="eyebrow">02 / Life along the route</span>
+        <h2>Trade did not only move goods.<br><em>It shaped places.</em></h2>
+        <p>
+            A caravan needed food, water, shelter, animals and people who
+            understood the landscape. Repeated journeys supported markets
+            and stopping places, connecting local livelihoods to a much
+            wider commercial world.
+        </p>
+    </div>
+
+    <div class="settlement-grid">
+        <article class="settlement-card reveal">
+            <span class="card-number">01 — THE MARKET</span>
+            <h3>Leh</h3>
+            <p>
+                Routes converged on Leh, where its bazaar became a meeting
+                point for traders from different regions. Commerce supported
+                merchants, transport workers, craftspeople and market activity.
+            </p>
+        </article>
+
+        <article class="settlement-card reveal">
+            <span class="card-number">02 — THE PASSAGE</span>
+            <h3>Nubra Valley</h3>
+            <p>
+                Villages along the traditional route offered places for
+                caravans to stop and prepare for the demanding journey
+                across the northern passes.
+            </p>
+        </article>
+
+        <article class="settlement-card reveal">
+            <span class="card-number">03 — THE HALT</span>
+            <h3>Panamik</h3>
+            <p>
+                Panamik was an important caravan halt in Nubra, providing
+                access to water and a place to rest before travellers
+                negotiated the Saser and Karakoram passes.
+            </p>
+        </article>
+    </div>
+</section>
+
+<!-- NUBRA FEATURE -->
+<section class="content-section nubra-section">
+    <div class="nubra-layout">
+        <div class="nubra-title reveal">
+            <span class="eyebrow">03 / A Nubra story</span>
+            <h2>The valley<br>between <em>worlds.</em></h2>
+            <p>
+                The historic route was part of local life, not merely
+                a distant line on a map.
+            </p>
+        </div>
+
+        <div class="nubra-villages reveal">
+            <article class="village">
+                <span class="village-number">01</span>
+                <div>
+                    <h3>Khalsar</h3>
+                    <p>
+                        One of the villages associated with the traditional
+                        caravan corridor through Nubra.
+                    </p>
+                </div>
+            </article>
+
+            <article class="village">
+                <span class="village-number">02</span>
+                <div>
+                    <h3>Tirit and Sumoor</h3>
+                    <p>
+                        Settlements along the valley route that formed part
+                        of the landscape through which travellers passed.
+                    </p>
+                </div>
+            </article>
+
+            <article class="village">
+                <span class="village-number">03</span>
+                <div>
+                    <h3>Tegar</h3>
+                    <p>
+                        Another village identified along the historic
+                        trade corridor through Nubra.
+                    </p>
+                </div>
+            </article>
+
+            <article class="village">
+                <span class="village-number">04</span>
+                <div>
+                    <h3>Panamik — the stopping point</h3>
+                    <p>
+                        An important halt where caravans could rest and
+                        access water before moving towards the high passes.
+                        The village's hot springs added to its value as
+                        a place for travellers to pause.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- GOODS -->
+<section class="content-section goods-section">
+    <div class="section-head reveal">
+        <span class="eyebrow">04 / The exchange</span>
+        <h2>What travelled<br><em>across the mountains?</em></h2>
+        <p>
+            The trade was much broader than silk alone. Different routes
+            carried products shaped by the needs, resources and markets
+            of the regions they connected.
+        </p>
+    </div>
+
+    <div class="goods-grid reveal">
+        <article class="good">
+            <span>01 / TEXTILES</span>
+            <h3>Silk & cloth</h3>
+            <p>Fine fabrics, silk yarn and textiles from distant markets.</p>
+        </article>
+
+        <article class="good">
+            <span>02 / FIBRES</span>
+            <h3>Pashmina wool</h3>
+            <p>Fine wool that linked high-altitude herding with weaving and shawl production.</p>
+        </article>
+
+        <article class="good">
+            <span>03 / EVERYDAY GOODS</span>
+            <h3>Tea & salt</h3>
+            <p>Useful commodities exchanged between neighbouring regions.</p>
+        </article>
+
+        <article class="good">
+            <span>04 / MERCHANDISE</span>
+            <h3>Carpets & more</h3>
+            <p>Carpets, clothing, household goods, jewellery and other wares.</p>
+        </article>
+    </div>
+</section>
+
+<!-- CULTURAL IMPORTANCE -->
+<section class="content-section">
+    <div class="section-head reveal">
+        <span class="eyebrow">05 / Beyond commerce</span>
+        <h2>The greatest exchange<br>was not always <em>material.</em></h2>
+    </div>
+
+    <div class="exchange-layout">
+        <blockquote class="exchange-quote reveal">
+            “Every caravan carried more than cargo.
+            It carried <em>connections.</em>”
+        </blockquote>
+
+        <div class="exchange-copy reveal">
+            <p>
+                Trade brought people with different languages, customs
+                and beliefs into contact. Merchants, travellers and
+                religious visitors helped connect communities across
+                the Himalayas and Central Asia.
+            </p>
+            <p>
+                Textiles, artistic traditions, food habits, knowledge
+                and religious objects could travel with these encounters.
+                The routes therefore helped shape the cultural history
+                of Ladakh, even as local communities adapted outside
+                influences to their own traditions.
+            </p>
+            <p>
+                This was not a one-way process: Ladakh's own products,
+                skills and communities also contributed to the wider
+                network of exchange.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DECLINE AND LEGACY -->
+<section class="legacy">
+    <div class="section-head reveal">
+        <span class="eyebrow">06 / From the past to the present</span>
+        <h2>When the caravans<br>fell <em>silent.</em></h2>
+        <p>
+            The old overland trade did not end everywhere at once.
+            Political changes, new borders and the reorganisation of
+            trade after the mid-twentieth century disrupted the historic
+            caravan networks. Modern transport and new economic activities
+            gradually changed how Ladakh connected with the outside world.
+        </p>
+        <p>
+            Yet the legacy remains visible in old market spaces, historic
+            buildings, family memories, cultural exchanges and the villages
+            that once welcomed travellers.
+        </p>
+    </div>
+
+    <div class="legacy-links reveal">
+        <a class="primary-link" href="kingdoms.html">
+            Explore the Kingdoms →
+        </a>
+        <a class="primary-link" href="culture.html">
+            Discover Ladakhi Culture →
+        </a>
+    </div>
+</section>
+</main>
+
+<footer>
+    <span>© LADAKH HERITAGE — HISTORY THAT CONNECTS US</span>
+    <a href="index.html">RETURN HOME ↑</a>
+</footer>
+
+<script>
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+    menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+    });
+});
+
+/* SCROLL REVEAL */
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal, .route-visual").forEach((element, index) => {
+    element.style.transitionDelay = `${(index % 3) * 100}ms`;
+    revealObserver.observe(element);
+});
+
+/* INTERNAL PAGE TRANSITIONS */
+
+document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener("click", event => {
+        const url = new URL(link.href, window.location.href);
+
+        if (
+            url.origin !== window.location.origin ||
+            !url.pathname.endsWith(".html") ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey ||
+            event.button !== 0
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+        document.body.classList.add("page-leaving");
+
+        setTimeout(() => {
+            window.location.href = url.href;
+        }, 250);
+    });
+});
+</script>
+
+<style>
+body.page-leaving {
+    opacity: 0;
+    transition: opacity .25s ease;
+    pointer-events: none;
+}
+</style>
+
+</body>
+</html>

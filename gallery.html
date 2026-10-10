@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Explore the visual history, architecture and cultural memory of Ladakh.">
+<title>The Archive — Ladakh Heritage</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #11110f;
+  --panel: #191916;
+  --gold: #c5a46d;
+  --ivory: #f0eadf;
+  --muted: #a6a094;
+  --line: rgba(240,234,223,.15);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: var(--sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* NAVIGATION */
+
+.navbar {
+  min-height: 76px;
+  padding: 18px 6.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(17,17,15,.94);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 21px;
+  letter-spacing: -.5px;
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 25px;
+}
+
+.nav-links a {
+  color: #d2cdc2;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e0bb78;
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1500px;
+  margin: auto;
+  padding: 100px 8% 75px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(65px, 11vw, 135px);
+  line-height: .95;
+  font-weight: 400;
+  letter-spacing: -4px;
+  margin: 30px 0;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-bottom p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 490px;
+}
+
+.hero-index {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 23px;
+  white-space: nowrap;
+}
+
+/* MAIN ARCHIVE */
+
+.archive {
+  max-width: 1500px;
+  margin: auto;
+  padding: 20px 8% 100px;
+}
+
+.intro {
+  padding: 40px 0 65px;
+  border-top: 1px solid var(--line);
+}
+
+.intro h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 75px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  margin: 20px 0;
+}
+
+.intro h2 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.intro p {
+  max-width: 580px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* FEATURED IMAGE */
+
+.archive-figure {
+  margin: 0 0 65px;
+}
+
+.archive-figure a.image-link {
+  display: block;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.archive-figure img {
+  width: 100%;
+  height: auto;
+  max-height: 760px;
+  object-fit: cover;
+  filter: saturate(.78);
+  transition: transform .8s ease, filter .5s ease;
+}
+
+.archive-figure a.image-link:hover img {
+  transform: scale(1.025);
+  filter: saturate(1);
+}
+
+.archive-figure.large img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.archive-figure.medium {
+  width: 78%;
+  margin-left: auto;
+}
+
+.archive-figure.medium img {
+  aspect-ratio: 5 / 4;
+}
+
+.archive-figure.wide {
+  width: 92%;
+}
+
+.archive-figure.wide img {
+  aspect-ratio: 3 / 2;
+}
+
+.archive-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 25px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.archive-figure figcaption .caption-location {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.source-link {
+  color: #d7c49f;
+  border-bottom: 1px solid rgba(197,164,109,.35);
+  padding-bottom: 2px;
+  transition: color .25s, border-color .25s;
+}
+
+.source-link:hover {
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+/* EDITORIAL TEXT BETWEEN PHOTOGRAPHS */
+
+.archive-story {
+  max-width: 660px;
+  margin: 100px auto;
+}
+
+.archive-story h3 {
+  font-family: var(--serif);
+  font-size: clamp(35px, 5vw, 55px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 15px 0 20px;
+}
+
+.archive-story p {
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CLOSING */
+
+.archive-ending {
+  border-top: 1px solid var(--line);
+  margin-top: 100px;
+  padding: 55px 0 15px;
+}
+
+.archive-ending h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(37px, 6vw, 72px);
+  line-height: 1.12;
+  margin: 22px 0;
+}
+
+.archive-ending h3 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.archive-ending p {
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 30px 8%;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.footer a {
+  color: var(--gold);
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 17px 5%;
+  }
+
+  .nav-links {
+    gap: 10px 16px;
+  }
+
+  .hero,
+  .archive {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .archive-figure.medium {
+    width: 88%;
+  }
+
+  .archive-figure.wide {
+    width: 96%;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 9px 17px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 70px;
+    padding-bottom: 55px;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 16vw, 85px);
+    letter-spacing: -2px;
+  }
+
+  .hero-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .archive {
+    padding-top: 10px;
+    padding-bottom: 65px;
+  }
+
+  .archive-figure,
+  .archive-figure.medium,
+  .archive-figure.wide {
+    width: 100%;
+    margin-bottom: 45px;
+  }
+
+  .archive-figure.large img,
+  .archive-figure.medium img,
+  .archive-figure.wide img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .archive-figure figcaption {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .archive-story {
+    margin: 60px auto;
+  }
+
+  .archive-ending {
+    margin-top: 65px;
+  }
+
+  .footer {
+    padding: 25px 6%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a class="brand" href="index.html">LADAKH<span>.</span> HERITAGE</a>
+
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="history.html">History</a>
+    <a href="origin.html">Origins</a>
+    <a href="trade-routes.html">Trade Routes</a>
+    <a href="culture.html">Culture</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="ending.html">Upcoming</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="eyebrow">Ladakh Heritage / Visual Archive</div>
+
+    <h1>The<br><em>Archive.</em></h1>
+
+    <div class="hero-bottom">
+      <p>
+        A visual journey through Ladakh's royal past, historic
+        settlements and sacred landscapes. Photographs and
+        illustrations preserve moments from a region where
+        history remains part of everyday life.
+      </p>
+
+      <div class="hero-index">A living history.</div>
+    </div>
+  </section>
+
+  <section class="archive">
+
+    <div class="intro reveal">
+      <div class="eyebrow">Memory · Place · Time</div>
+
+      <h2>One land.<br><em>Many memories.</em></h2>
+
+      <p>
+        From the palaces of Leh to the monasteries of Nubra,
+        each image opens a window into Ladakh's architectural
+        and cultural past. Together, they form one continuous
+        visual record of a remarkable Himalayan landscape.
+      </p>
+    </div>
+
+    <!-- LEH PALACE -->
+
+    <figure class="archive-figure large reveal">
+      <a class="image-link"
+         href="images/leh-palace-leh-ladakh-1-attr-hero.jpg"
+         target="_blank" rel="noopener">
+        <img
+          src="images/leh-palace-leh-ladakh-1-attr-hero.jpg"
+          alt="Historical illustration of Leh Palace from the nineteenth century"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Leh · Royal heritage</span>
+        <span>
+          The Palace at Leh · Historical illustration, 1847
+          · <a class="source-link"
+            href="images/leh-palace-leh-ladakh-1-attr-hero.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- OLD PALACE -->
+
+    <div class="archive-story reveal">
+      <div class="eyebrow">Royal architecture</div>
+      <h3>Stone, time<br>and memory.</h3>
+      <p>
+        Rising above the old town, Leh Palace stands as a
+        reminder of the region's royal history. Historic
+        photographs help preserve not only its architecture,
+        but also the changing appearance of the settlement
+        surrounding it.
+      </p>
+    </div>
+
+    <figure class="archive-figure medium reveal">
+      <a class="image-link"
+         href="https://commons.wikimedia.org/wiki/File:Old_palace,_Leh.jpg"
+         target="_blank" rel="noopener">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Old_palace%2C_Leh.jpg?width=1300"
+          alt="Old Palace of Leh photographed in 1949"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Leh · 1949</span>
+        <span>
+          The Old Palace · Archival photograph
+          · <a class="source-link"
+            href="https://commons.wikimedia.org/wiki/File:Old_palace,_Leh.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- LEH BAZAAR -->
+
+    <div class="archive-story reveal">
+      <div class="eyebrow">Trade & everyday life</div>
+      <h3>Where journeys<br>once met.</h3>
+      <p>
+        For generations, Leh connected traders and travellers
+        moving across Himalayan and Central Asian routes.
+        Its bazaars became places of exchange, bringing
+        together goods, languages, ideas and people from
+        distant regions.
+      </p>
+    </div>
+
+    <figure class="archive-figure wide reveal">
+      <a class="image-link"
+         href="images/cityofleh.jpg"
+         target="_blank" rel="noopener">
+        <img
+          src="images/cityofleh.jpg"
+          alt="Historical illustration of the bazaar at Leh"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Leh · Historic bazaar</span>
+        <span>
+          The Bazaar at Leh · Nineteenth-century print
+          · <a class="source-link"
+            href="images/cityofleh.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- LEH FROM THE PALACE -->
+
+    <figure class="archive-figure medium reveal">
+      <a class="image-link"
+         href="C"
+         target="_blank" rel="noopener">
+        <img
+          src="images/historicleh.jpg"
+          alt="View from Leh Palace, photographed in 1981"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Leh · 1981</span>
+        <span>
+          A view from the palace · Documentary photograph
+          · <a class="source-link"
+            href="images/historicleh.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- NUBRA VALLEY -->
+
+    <div class="archive-story reveal">
+      <div class="eyebrow">Nubra Valley · Sacred architecture</div>
+      <h3>Above the<br>valley.</h3>
+      <p>
+        In Nubra, monasteries occupy a landscape shaped by
+        mountain passes, river valleys and generations of
+        religious practice. Diskit Gompa remains one of the
+        region's most recognisable cultural landmarks, linking
+        its living communities with a long Buddhist tradition.
+      </p>
+    </div>
+
+    <figure class="archive-figure large reveal">
+      <a class="image-link"
+         href="https://commons.wikimedia.org/wiki/File:Diskit_Gompa_2.jpg"
+         target="_blank" rel="noopener">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Diskit_Gompa_2.jpg?width=1500"
+          alt="Diskit Gompa overlooking the Nubra Valley"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Nubra · 2009</span>
+        <span>
+          Diskit Gompa · Documentary photograph
+          · <a class="source-link"
+            href="https://commons.wikimedia.org/wiki/File:Diskit_Gompa_2.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- MAITREYA STATUE -->
+
+    <figure class="archive-figure wide reveal">
+      <a class="image-link"
+         href="images/theogmaitreya.jpg"
+         target="_blank" rel="noopener">
+        <img
+          src="images/theogmaitreya.jpg"
+          alt="Diskit Monastery and Maitreya Buddha statue"
+          loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="caption-location">Nubra · Sacred landscape</span>
+        <span>
+          Diskit Monastery and Maitreya Buddha statue
+          · <a class="source-link"
+            href="images/theogmaitreya.jpg"
+            target="_blank" rel="noopener">Original source ↗</a>
+        </span>
+      </figcaption>
+    </figure>
+
+    <!-- ENDING -->
+
+    <div class="archive-ending reveal">
+      <div class="eyebrow">Ladakh Heritage · Closing note</div>
+
+      <h3>History is not only<br>what remains.<br><em>It is what we remember.</em></h3>
+
+      <p>
+        Buildings change, settlements grow, and generations
+        move forward. Through photographs, illustrations and
+        the memories attached to them, the story of Ladakh
+        continues to be preserved.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© Ladakh Heritage · A visual record of place and memory</span>
+  <a href="history.html">Continue exploring history ↗</a>
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08
+  });
+
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("visible"));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ladakh Heritage</title>
+
+<style>
+
+
+/* =========================
+   FINAL — PRESERVING MEMORY
+========================= */
+
+.final {
+    min-height: 85vh;
+    padding: 150px 8vw;
+    background: #d7d0c3;
+    color: #171717;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.final-small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    opacity: 0.65;
+}
+
+.final h2 {
+    max-width: 1100px;
+    font-size: clamp(55px, 9vw, 140px);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin: 0;
+}
+
+.final p {
+    max-width: 600px;
+    margin-top: 60px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #45413b;
+}
+
+    .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-image {
+    transition: transform 0.8s ease;
+}
+
+.intro-image:hover {
+    transform: scale(1.015);
+}
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eeeae2;
+    color: #171717;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 76px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background: rgba(20,20,20,0.30);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: white;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.logo {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a.active {
+    color: #f4c542;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transition: 0.35s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 130px 6vw 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.05)
+        ),
+        url("images/kingdom.jpg")
+
+        center / cover;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin-top: 8vh;
+
+    animation: appear 1.2s ease forwards;
+}
+
+.hero-title small {
+    display: block;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.8;
+}
+
+.hero-title h1 {
+    font-size: clamp(90px, 18vw, 260px);
+
+    line-height: 0.78;
+
+    font-weight: 400;
+
+    letter-spacing: -9px;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-top: 70px;
+}
+
+.hero-description {
+    max-width: 430px;
+
+    font-size: 22px;
+    line-height: 1.45;
+}
+
+.scroll-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    background: #171717;
+    color: #f1eee7;
+
+    padding: 150px 8vw;
+}
+
+.section-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    max-width: 1000px;
+
+    font-size: clamp(48px, 7vw, 105px);
+
+    line-height: 0.98;
+
+    font-weight: 400;
+}
+
+.intro-image {
+    width: 100%;
+    height: 520px;
+
+    object-fit: cover;
+
+    margin-top: 80px;
+
+    display: block;
+
+    filter: saturate(0.85);
+}
+
+.intro-text {
+    max-width: 620px;
+
+    margin-left: auto;
+    margin-top: 100px;
+
+    font-size: 20px;
+    line-height: 1.7;
+
+    color: #c9c5bc;
+}
+
+
+/* =========================
+   FACTS
+========================= */
+
+.facts {
+    padding: 130px 8vw;
+}
+
+.facts-heading {
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 80px;
+}
+
+.fact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.fact {
+    padding: 45px 30px 45px 0;
+
+    border-right: 1px solid rgba(0,0,0,0.15);
+}
+
+.fact:not(:first-child) {
+    padding-left: 30px;
+}
+
+.fact:last-child {
+    border-right: none;
+}
+
+.fact-number {
+    font-size: 58px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.fact h3 {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.fact p {
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #55524d;
+}
+
+
+/* =========================
+   LANDSCAPE IMAGE
+========================= */
+
+.landscape {
+
+    min-height: 85vh;
+
+    padding: 100px 8vw;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.20),
+            rgba(0,0,0,0.60)
+        ),
+        url("images/landscape-1.jpg")
+        center / cover;
+}
+
+.landscape-label {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+}
+
+.landscape h2 {
+    max-width: 900px;
+
+    font-size: clamp(55px, 8vw, 120px);
+
+    line-height: 0.9;
+
+    font-weight: 400;
+}
+
+.landscape p {
+    max-width: 550px;
+
+    margin-top: 35px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HERITAGE
+========================= */
+
+.heritage {
+    padding: 150px 8vw;
+}
+
+.heritage-title {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    margin-bottom: 120px;
+}
+
+.heritage-title h2 {
+    font-size: clamp(55px, 8vw, 115px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.heritage-title p {
+    max-width: 450px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    align-self: end;
+}
+
+.heritage-list {
+    border-top: 1px solid #aaa;
+}
+
+.heritage-item {
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    align-items: center;
+    padding: 35px 10px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: padding 0.4s ease, background 0.4s ease;
+}
+
+.heritage-item:hover {
+    padding-left: 25px;
+    padding-right: 25px;
+    background: rgba(255,255,255,0.06);
+}
+
+.heritage-item h3 {
+    font-size: clamp(28px, 4vw, 55px);
+    font-weight: 400;
+    margin: 0;
+    transition: transform 0.4s ease;
+}
+
+.heritage-item:hover h3 {
+    transform: translateX(10px);
+}
+
+.heritage-item .arrow {
+    font-size: 28px;
+    text-align: right;
+    transition: transform 0.4s ease;
+}
+
+.heritage-item:hover .arrow {
+    transform: translate(6px, -6px);
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing {
+    min-height: 80vh;
+    padding: 140px 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #111;
+    color: white;
+}
+
+.closing-number {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 50px;
+}
+
+.closing h2 {
+    max-width: 1000px;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -4px;
+    margin: 0;
+}
+
+.closing h2 span {
+    display: block;
+    opacity: 0.35;
+}
+
+.closing p {
+    max-width: 600px;
+    margin-top: 60px;
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.65;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #171717;
+    color: #ddd8ce;
+    padding: 50px 8vw;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 8px;
+    }
+
+    .hero {
+        padding: 110px 25px 40px;
+    }
+
+    .hero-title h1 {
+        font-size: 24vw;
+        letter-spacing: -4px;
+    }
+
+    .hero-bottom {
+        display: block;
+    }
+
+    .hero-description {
+        font-size: 18px;
+    }
+
+    .scroll-text {
+        display: block;
+        margin-top: 30px;
+    }
+
+    .intro,
+    .facts,
+    .heritage {
+        padding: 100px 25px;
+    }
+
+    .fact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fact {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+        padding: 35px 0;
+    }
+
+    .fact:not(:first-child) {
+        padding-left: 0;
+    }
+
+    .heritage-title {
+        grid-template-columns: 1fr;
+    }
+
+    .heritage-item {
+        grid-template-columns: 50px 1fr 20px;
+    }
+
+    .heritage-item h3 {
+        font-size: 21px;
+    }
+
+    .landscape {
+        min-height: 75vh;
+        padding: 80px 25px;
+    }
+
+    .closing {
+        min-height: 80vh;
+        padding: 100px 25px;
+    }
+
+    .closing h2 {
+        font-size: clamp(45px, 13vw, 75px);
+        letter-spacing: -2px;
+    }
+
+    .closing p {
+        font-size: 17px;
+        margin-top: 40px;
+    }
+
+    footer {
+        padding: 35px 25px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        LADAKH HERITAGE
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html" class="active">HOME</a>
+
+        <a href="explore.html">EXPLORE</a>
+
+        <a href="history.html">HISTORY</a>
+
+        <a href="culture.html">CULTURE</a>
+
+        <a href="gallery.html">GALLERY</a>
+
+        <a href="ending.html">UPCOMING</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-top">
+
+        <span>01 / LADAKH</span>
+
+        <span>THE LAND OF HIGH PASSES</span>
+
+    </div>
+
+
+    <div class="hero-title">
+
+        <small>
+            A DIGITAL HERITAGE OF THE HIMALAYAS
+        </small>
+
+        <h1>
+            LADAKH
+        </h1>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <p class="hero-description">
+
+            A high-altitude land where mountains,
+            communities and centuries of living
+            traditions come together.
+
+        </p>
+
+        <span class="scroll-text">
+            Scroll to explore
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <div class="section-number">
+        02 — THE PLACE
+    </div>
+
+
+    <h2>
+
+        More than a landscape.
+        Ladakh is a way of life.
+
+    </h2>
+    <img
+    src="images/Ladakh-Main.jpg"
+    alt="Life and landscape of Ladakh"
+    class="intro-image"
+>
+
+
+    <p class="intro-text">
+
+        From the high mountains of the Himalayas
+        to the settlements along its rivers,
+        Ladakh has developed a distinctive way
+        of living with its environment.
+
+        <br><br>
+
+        Its villages, languages, architecture,
+        food, festivals, crafts and traditions
+        form a cultural identity shaped by
+        generations of people.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     FACTS
+========================= -->
+
+<section class="facts">
+
+    <div class="facts-heading">
+        Ladakh / In brief
+    </div>
+
+
+    <div class="fact-grid">
+
+
+        <div class="fact">
+
+            <div class="fact-number">
+                01
+            </div>
+
+            <h3>
+                Landscape
+            </h3>
+
+            <p>
+
+                A high-altitude region of mountains,
+                valleys, rivers and cold desert landscapes.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="fact">
+
+            <div class="fact-number">
+                02
+            </div>
+
+            <h3>
+                Communities
+            </h3>
+
+            <p>
+
+                Villages and communities have developed
+                unique traditions adapted to life in a
+                challenging mountain environment.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="fact">
+
+            <div class="fact-number">
+                03
+            </div>
+
+            <h3>
+                Identity
+            </h3>
+
+            <p>
+
+                Architecture, language, food, festivals,
+                music and craftsmanship continue to shape
+                Ladakh's cultural identity.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     LANDSCAPE
+========================= -->
+
+<section class="landscape">
+
+    <div class="landscape-label">
+        03 — LANDSCAPE
+    </div>
+
+
+    <h2>
+
+        Where the mountains
+        become the horizon.
+
+    </h2>
+
+
+    <p>
+
+        Ladakh's landscape is defined by dramatic
+        contrasts — immense mountains, narrow valleys,
+        flowing rivers and stretches of cold desert.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     HERITAGE
+========================= -->
+
+<section class="heritage">
+
+    <div class="heritage-title">
+
+
+        <h2>
+
+            Heritage is
+            lived.
+
+        </h2>
+
+
+        <p>
+
+            Heritage is not only found in monuments.
+            It exists in everyday life — in the way
+            people build homes, celebrate festivals,
+            prepare food, work the land and pass
+            knowledge from one generation to another.
+
+        </p>
+
+
+    </div>
+
+
+    
+
+
+    <div class="heritage-list">
+
+ 
+
+        <div class="heritage-item">
+
+            <span>01</span>
+
+            <h3>
+                Architecture
+            </h3>
+
+            <span class="arrow">
+                ↗
+            </span>
+
+        </div>
+
+
+
+        <div class="heritage-item">
+
+            <span>02</span>
+
+            <h3>
+                Festivals
+            </h3>
+
+            <span class="arrow">
+                ↗
+            </span>
+
+        </div>
+
+
+
+        <div class="heritage-item">
+
+            <span>03</span>
+
+            <h3>
+                Food & Agriculture
+            </h3>
+
+            <span class="arrow">
+                ↗
+            </span>
+
+        </div>
+
+
+
+        <div class="heritage-item">
+
+            <span>04</span>
+
+            <h3>
+                Music & Craft
+            </h3>
+
+            <span class="arrow">
+                ↗
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL MESSAGE
+========================= -->
+
+<section class="final">
+
+    <div class="final-small">
+
+        04 — PRESERVING MEMORY
+
+    </div>
+
+
+    <h2>
+
+        What we preserve
+        today becomes
+        tomorrow's memory.
+
+    </h2>
+
+
+    <p>
+
+        As the world changes, documenting and
+        understanding cultural heritage becomes
+        increasingly important. Digital spaces can
+        help connect younger generations with the
+        stories, knowledge and traditions around them.
+
+    </p>
+
+</section>
+
+<section class="closing">
+
+    <div class="closing-number">
+        04 — OUR RESPONSIBILITY
+    </div>
+
+    <h2>
+        Heritage is not only
+        what we inherit.
+        <span>It is what we protect.</span>
+    </h2>
+
+    <p>
+        Ladakh's identity lives in its landscapes, communities,
+        traditions and everyday life. Preserving it begins with
+        understanding its value.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <span>
+        LADAKH HERITAGE
+    </span>
+
+    <span>
+        DIGITAL PRESERVATION • 2026
+    </span>
+
+</footer>
+
+<script>
+
+const sections = document.querySelectorAll(
+    ".intro, .facts, .landscape, .heritage, .final, .closing"
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+sections.forEach(section => {
+    section.classList.add("reveal");
+    observer.observe(section);
+});
+
+</script>
+
+<script>
+
+const sections = document.querySelectorAll(
+    ".intro, .facts, .landscape, .heritage, .final, .closing"
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+sections.forEach(section => {
+    section.classList.add("reveal");
+    observer.observe(section);
+});
+
+</script>
+
+
+</body>
+</html>

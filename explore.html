@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Explore — Ladakh Heritage</title>
+
+<style>
+
+
+/* PREMIUM CARD INTERACTIONS */
+.card,
+.explore-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    will-change: transform;
+}
+
+.card img,
+.explore-card img {
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+                filter 0.6s ease;
+}
+
+.card:hover img,
+.explore-card:hover img {
+    transform: scale(1.09);
+    filter: brightness(0.82);
+}
+
+/* STAGGERED ENTRANCE */
+.card:nth-child(1),
+.explore-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.card:nth-child(2),
+.explore-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.card:nth-child(3),
+.explore-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.card:nth-child(4),
+.explore-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+
+
+/* GOLDEN TITLE ACCENT */
+.card h3,
+.explore-card h3 {
+    position: relative;
+    width: fit-content;
+}
+
+.card h3::after,
+.explore-card h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 32px;
+    height: 2px;
+    background: #d8b45a;
+    transition: width 0.4s ease;
+}
+
+.card:hover h3::after,
+.explore-card:hover h3::after {
+    width: 100%;
+}
+
+
+
+/* CINEMATIC IMAGE OVERLAY */
+.card::after,
+.explore-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(8, 12, 16, 0.88) 0%,
+        rgba(8, 12, 16, 0.25) 48%,
+        transparent 100%
+    );
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.card:hover::after,
+.explore-card:hover::after {
+    opacity: 1;
+}
+
+/* KEEP CARD TEXT ABOVE THE OVERLAY */
+.card h3,
+.card p,
+.explore-card h3,
+.explore-card p {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.card:hover h3,
+.explore-card:hover h3 {
+    transform: translateY(-5px);
+}
+
+
+
+/* GOLDEN NAVIGATION HOVER */
+nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: #d8b45a;
+    box-shadow: 0 0 8px rgba(216, 180, 90, 0.45);
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+}
+
+nav a:hover {
+    color: #d8b45a;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* KEEP THE ACTIVE PAGE HIGHLIGHT */
+nav a.active {
+    color: #d8b45a;
+}
+
+
+
+/* CINEMATIC HERO PARALLAX */
+.hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    z-index: -1;
+    background-image: inherit;
+    background-position: center;
+    background-size: cover;
+    will-change: transform;
+    animation: heroDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroDrift {
+    from {
+        transform: translateY(-1%) scale(1.02);
+    }
+    to {
+        transform: translateY(2%) scale(1.08);
+    }
+}
+
+/* MOBILE PERFORMANCE */
+@media (max-width: 700px) {
+    .hero::before {
+        animation-duration: 25s;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+    }
+}
+
+
+
+/* PREMIUM STICKY NAVIGATION */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        backdrop-filter 0.35s ease;
+}
+
+/* Applied when the page is scrolled */
+nav.scrolled {
+    background: rgba(15, 20, 24, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+
+
+/* CINEMATIC HERO EFFECT */
+.hero {
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    z-index: -1;
+    animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+/* HERO TEXT REVEAL */
+.hero h1,
+.hero p {
+    animation: textReveal 1.2s ease both;
+}
+
+.hero p {
+    animation-delay: 0.25s;
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* IMAGE CARD HOVER */
+.card,
+.explore-card {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.card:hover,
+.explore-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.2);
+}
+
+.card img,
+.explore-card img {
+    transition: transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.card:hover img,
+.explore-card:hover img {
+    transform: scale(1.08);
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* SCROLL REVEAL EFFECT */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* STAGGER THE CARDS */
+.reveal:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.reveal:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #eeeae2;
+    color: #171717;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background: rgba(20,20,20,0.30);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.logo {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a.active {
+    color: #f4c542;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.explore-hero {
+    min-height: 100vh;
+
+    padding: 150px 8vw 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.20),
+            rgba(0,0,0,0.70)
+        ),
+        url("images/hero-ladakh.jpg")
+        center / cover;
+}
+
+.explore-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+
+    margin-bottom: 30px;
+}
+
+.explore-hero h1 {
+    max-width: 1100px;
+
+    font-size: clamp(70px, 13vw, 190px);
+    line-height: 0.82;
+    font-weight: 400;
+    letter-spacing: -7px;
+}
+
+.explore-hero p {
+    max-width: 560px;
+
+    margin-top: 50px;
+
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.explore-intro {
+    padding: 140px 8vw;
+}
+
+.explore-intro h2 {
+    max-width: 950px;
+
+    font-size: clamp(45px, 7vw, 100px);
+    line-height: 0.95;
+    font-weight: 400;
+}
+
+.explore-intro p {
+    max-width: 600px;
+
+    margin-left: auto;
+    margin-top: 70px;
+
+    font-size: 19px;
+    line-height: 1.7;
+
+    color: #55524d;
+}
+
+
+/* =========================
+   EXPLORE GRID
+========================= */
+
+.explore-grid {
+    padding: 0 8vw 150px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.explore-card {
+    position: relative;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.explore-card.large {
+    min-height: 780px;
+}
+
+.explore-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+    inset: 0;
+
+    transition: transform 0.8s ease;
+}
+
+.explore-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,0.75)
+        );
+}
+
+.explore-card:hover img {
+    transform: scale(1.06);
+}
+
+.explore-content {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+
+    z-index: 2;
+}
+
+.explore-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    opacity: 0.7;
+
+    margin-bottom: 15px;
+}
+
+.explore-content h3 {
+    font-size: clamp(35px, 4vw, 60px);
+
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.explore-content p {
+    max-width: 430px;
+
+    margin-top: 20px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.explore-closing {
+    min-height: 70vh;
+
+    padding: 140px 8vw;
+
+    background: #171717;
+    color: #f1eee7;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.explore-closing h2 {
+    max-width: 1000px;
+
+    font-size: clamp(50px, 8vw, 115px);
+    line-height: 0.9;
+
+    font-weight: 400;
+}
+
+.explore-closing h2 span {
+    opacity: 0.35;
+}
+
+.explore-closing p {
+    max-width: 550px;
+
+    margin-top: 50px;
+
+    font-size: 19px;
+    line-height: 1.7;
+
+    color: #c9c5bc;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: #ddd8ce;
+
+    padding: 50px 8vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 8px;
+    }
+
+    .explore-hero {
+        padding: 120px 25px 60px;
+    }
+
+    .explore-hero h1 {
+        font-size: 24vw;
+        letter-spacing: -4px;
+    }
+
+    .explore-hero p {
+        font-size: 17px;
+    }
+
+    .explore-intro {
+        padding: 100px 25px;
+    }
+
+    .explore-intro p {
+        margin-top: 50px;
+        font-size: 17px;
+    }
+
+    .explore-grid {
+        padding: 0 25px 100px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .explore-card,
+    .explore-card.large {
+        min-height: 550px;
+    }
+
+    .explore-content {
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+    }
+
+    .explore-closing {
+        padding: 100px 25px;
+    }
+
+    footer {
+        padding: 35px 25px;
+
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        LADAKH HERITAGE
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="explore.html" class="active">
+            EXPLORE
+        </a>
+
+        <a href="history.html">
+            HISTORY
+        </a>
+
+        <a href="culture.html">
+            CULTURE
+        </a>
+
+        <a href="gallery.html">
+            GALLERY
+        </a>
+
+        <a href="ending.html"> UPCOMING </a>
+
+    </div>
+
+</nav>
+
+
+<section class="explore-hero">
+
+    <div class="explore-label">
+        01 — EXPLORE LADAKH
+    </div>
+
+    <h1>
+        Discover<br>
+        Ladakh.
+    </h1>
+
+    <p>
+        A land of high mountains, ancient settlements,
+        living traditions and communities shaped by one
+        of the world's most extraordinary landscapes.
+    </p>
+
+</section>
+
+
+<section class="explore-intro">
+
+    <h2>
+        There is more than one
+        way to experience Ladakh.
+    </h2>
+
+    <p>
+        From the high valleys of the mountains to the
+        villages built around water and agriculture,
+        Ladakh is a landscape where nature and human
+        life have developed together.
+    </p>
+
+</section>
+
+
+<section class="explore-grid">
+
+
+    <div class="explore-card large">
+
+        <img
+            src="images/nubra.jpg"
+            alt="Ladakh landscape"
+        >
+
+        <div class="explore-content">
+
+            <div class="explore-number">
+                01 — LANDSCAPES
+            </div>
+
+            <h3>
+                Mountains<br>
+                & Valleys
+            </h3>
+
+            <p>
+                Explore the dramatic landscapes that
+                define Ladakh, from barren mountains
+                to fertile valleys.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="explore-card">
+
+        <img
+            src="images/village.jpg"
+            alt="Life in Ladakh"
+        >
+
+        <div class="explore-content">
+
+            <div class="explore-number">
+                02 — LIFE
+            </div>
+
+            <h3>
+                People<br>
+                & Villages
+            </h3>
+
+            <p>
+                Discover the communities and everyday
+                life that give Ladakh its identity.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="explore-card">
+
+        <img
+            src="images/monas.jpg"
+            alt="Ladakh heritage"
+        >
+
+        <div class="explore-content">
+
+            <div class="explore-number">
+                03 — HERITAGE
+            </div>
+
+            <h3>
+                Monasteries<br>
+                & Architecture
+            </h3>
+
+            <p>
+                Ancient buildings and sacred spaces
+                reveal centuries of Ladakh's heritage.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="explore-card large">
+
+        <img
+            src="images/food.jpg"
+            alt="Traditional life in Ladakh"
+        >
+
+        <div class="explore-content">
+
+            <div class="explore-number">
+                04 — TRADITIONS
+            </div>
+
+            <h3>
+                Food,<br>
+                Craft & Life
+            </h3>
+
+            <p>
+                Everyday traditions connect generations
+                and keep Ladakh's cultural identity alive.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<section class="explore-closing">
+
+    <h2>
+        Explore with curiosity.
+        <span>Look closer.</span>
+    </h2>
+
+    <p>
+        Every landscape, settlement and tradition
+        tells part of the story of Ladakh.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <div>
+        LADAKH HERITAGE
+    </div>
+
+    <div>
+        PRESERVE · UNDERSTAND · PASS ON
+    </div>
+
+</footer>
+
+
+
+<script>
+const revealElements = document.querySelectorAll(
+    ".intro, .cards, .closing, .explore-grid, .explore-intro"
+);
+
+revealElements.forEach(element => {
+    element.classList.add("reveal");
+});
+
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
+</script>
+
+
+
+<script>
+const nav = document.querySelector("nav");
+
+if (nav) {
+    window.addEventListener("scroll", () => {
+        nav.classList.toggle("scrolled", window.scrollY > 40);
+    }, { passive: true });
+}
+</script>
+
+
+
+</body>
+
+</html>

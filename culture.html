@@ -1,0 +1,1257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture of Ladakh — Ladakh Heritage</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #10100f;
+  --panel: #191916;
+  --gold: #c9a86a;
+  --ivory: #f2eee5;
+  --muted: #aaa69c;
+  --line: rgba(242,238,229,.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+::selection {
+  background: var(--gold);
+  color: #111;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 6%;
+  background: rgba(16,16,15,.8);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.logo {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.nav-links a {
+  color: #e5e0d7;
+  font-size: 11px;
+  transition: color .3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: none;
+  color: var(--ivory);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 145px 9% 85px;
+  background:
+    linear-gradient(0deg, rgba(10,10,9,.95), transparent 80%),
+    linear-gradient(90deg, rgba(10,10,9,.6), transparent),
+    url("images/culturehero.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(60px, 12vw, 145px);
+  font-weight: 400;
+  line-height: .96;
+  letter-spacing: -4px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3vw, 31px);
+  color: #e8dfcf;
+  margin-top: 28px;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,.25);
+  padding-top: 22px;
+  margin-top: 45px;
+}
+
+.hero-bottom p {
+  font-size: 11px;
+  color: #c4beb2;
+  letter-spacing: 1px;
+}
+
+.hero-bottom a {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* INTRODUCTION */
+
+section {
+  padding: 110px 9%;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 10%;
+  align-items: end;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6vw, 75px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+
+h2 em {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.section-label {
+  margin-bottom: 23px;
+}
+
+.body-copy {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--muted);
+}
+
+/* FULL-WIDTH IMAGE */
+
+.full-image {
+  height: 75vh;
+  min-height: 390px;
+  max-height: 800px;
+  position: relative;
+  overflow: hidden;
+  background: #24231e;
+}
+
+.full-image img {
+  height: 100%;
+  transition: transform 1.2s ease;
+}
+
+.full-image:hover img {
+  transform: scale(1.035);
+}
+
+.image-caption {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 8%;
+  text-shadow: 0 2px 18px #000;
+}
+
+.image-caption h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(35px, 6vw, 70px);
+}
+
+.image-caption p {
+  color: #e5dfd3;
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.8;
+  max-width: 450px;
+}
+
+/* CULTURAL PILLARS */
+
+.pillars {
+  background: var(--panel);
+}
+
+.pillars-heading {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.pillars-heading .body-copy {
+  margin-top: 25px;
+  max-width: 600px;
+}
+
+.pillar-list {
+  border-top: 1px solid var(--line);
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  padding: 35px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pillar-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-top: 7px;
+}
+
+.pillar h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.pillar p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* TWO-COLUMN FEATURES */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9%;
+  align-items: center;
+}
+
+.feature-photo {
+  position: relative;
+  height: 620px;
+  min-height: 0;
+  overflow: hidden;
+  background: #28261f;
+}
+
+.feature-photo img {
+  height: 100%;
+  transition: transform .9s ease;
+}
+
+.feature-photo:hover img {
+  transform: scale(1.035);
+}
+
+.feature-copy .body-copy {
+  margin-top: 25px;
+}
+
+.small-note {
+  border-left: 2px solid var(--gold);
+  padding: 18px 22px;
+  margin-top: 30px;
+  color: #d5cbbb;
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+/* FOOD */
+
+.food {
+  background: var(--panel);
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 55px;
+}
+
+.section-heading .body-copy {
+  margin-top: 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.culture-card {
+  overflow: hidden;
+  background: #22211d;
+}
+
+.culture-card img {
+  height: 260px;
+  transition: transform .8s ease;
+}
+
+.culture-card:hover img {
+  transform: scale(1.04);
+}
+
+.card-copy {
+  padding: 25px;
+}
+
+.card-copy .number {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.card-copy h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin: 14px 0;
+}
+
+.card-copy p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* MUSIC AND FESTIVALS */
+
+.festivals {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(13,13,12,.96), rgba(13,13,12,.72)),
+    url("images/culturehero.jpg") center/cover no-repeat;
+}
+
+.festivals-content {
+  max-width: 850px;
+}
+
+.festival-list {
+  margin-top: 45px;
+  border-top: 1px solid var(--line);
+}
+
+.festival-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 25px;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.festival-row span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding-top: 5px;
+}
+
+.festival-row h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+
+.festival-row p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* CLOTHING AND CRAFT */
+
+.clothing {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 10%;
+  align-items: center;
+}
+
+.clothing-copy .body-copy {
+  margin-top: 25px;
+}
+
+.craft-points {
+  margin-top: 30px;
+}
+
+.craft-point {
+  border-top: 1px solid var(--line);
+  padding: 17px 0;
+}
+
+.craft-point h3 {
+  color: var(--ivory);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.craft-point p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* CULTURE TODAY */
+
+.today {
+  background: var(--panel);
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 10%;
+  align-items: start;
+}
+
+.today-copy .body-copy {
+  margin-top: 25px;
+}
+
+.today-quote {
+  margin-top: 35px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(23px, 3vw, 36px);
+  line-height: 1.45;
+  color: #e9dfce;
+}
+
+.today-quote span {
+  color: var(--gold);
+}
+
+/* CLOSING */
+
+.closing {
+  text-align: center;
+  padding: 125px 9%;
+}
+
+.closing h2 {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.closing .body-copy {
+  max-width: 600px;
+  margin: 25px auto 0;
+}
+
+.closing-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+
+.closing-links a {
+  max-width: 48%;
+}
+
+.closing-links small {
+  display: block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.closing-links span {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 3vw, 28px);
+  transition: color .3s ease;
+}
+
+.closing-links a:hover span {
+  color: var(--gold);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 27px 9%;
+  border-top: 1px solid var(--line);
+  color: #89867e;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PAGE TRANSITION */
+
+body.page-leaving {
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  nav {
+    padding: 18px 4%;
+  }
+
+  .nav-links {
+    gap: 11px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  nav {
+    padding: 17px 6%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    background: rgba(16,16,15,.98);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 90svh;
+    padding: 130px 7% 55px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  section {
+    padding: 80px 7%;
+  }
+
+  .intro,
+  .feature-grid,
+  .clothing,
+  .today {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .full-image {
+    height: 55vh;
+    min-height: 330px;
+  }
+
+  .pillar {
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+  }
+
+  .pillar p {
+    grid-column: 2;
+  }
+
+  .feature-photo {
+    height: 440px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-card img {
+    height: 280px;
+  }
+
+  .festival-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .closing-links {
+    margin-top: 45px;
+  }
+
+  footer {
+    flex-direction: column;
+    padding: 25px 7%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="logo">LADAKH<span>.</span>HERITAGE</a>
+
+  <button class="menu-toggle" id="menuToggle"
+    aria-label="Open navigation" aria-expanded="false">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="history.html">History</a>
+    <a href="culture.html" class="active">Culture</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="ending.html">Upcoming</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">The Living Heritage of Ladakh</div>
+
+    <h1>Culture is<br><span>identity.</span></h1>
+
+    <p class="hero-subtitle">
+      A way of life shaped by the mountains.
+    </p>
+
+    <div class="hero-bottom">
+      <p>PEOPLE · TRADITIONS · BELONGING</p>
+      <a href="#introduction">EXPLORE THE CULTURE ↓</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 INTRODUCTION -->
+
+<section class="intro reveal" id="introduction">
+  <div>
+    <div class="section-label">01 — Beyond the Landscape</div>
+    <h2>A culture that lives through <em>generations.</em></h2>
+  </div>
+
+  <div>
+    <p class="body-copy">
+      Ladakh's cultural identity has developed through its high-altitude
+      environment, local communities, religious traditions and historic
+      connections with neighbouring regions.
+    </p>
+    <br>
+    <p class="body-copy">
+      Its heritage can be found in everyday life: the food shared at
+      home, the clothes worn on special occasions, the sounds of folk
+      music, the design of traditional houses and the gatherings that
+      bring communities together.
+    </p>
+    <br>
+    <p class="body-copy">
+      Ladakh is culturally diverse. Traditions vary across communities
+      and regions, making every part of the territory important to its
+      wider cultural story.
+    </p>
+  </div>
+</section>
+
+<div class="full-image">
+  <img src="images/ladakh-high-on-the-himalayas.jpg"
+       alt="Mountain landscape of Ladakh"
+       loading="lazy">
+  <div class="image-caption">
+    <h3>More than a landscape.</h3>
+    <p>A living heritage carried by the people who call Ladakh home.</p>
+  </div>
+</div>
+
+<!-- 02 CULTURAL PILLARS -->
+
+<section class="pillars">
+  <div class="pillars-heading reveal">
+    <div class="section-label">02 — The Foundations</div>
+    <h2>Many expressions.<br><em>One living heritage.</em></h2>
+    <p class="body-copy">
+      Culture is not a single monument or festival. It is a collection
+      of practices, knowledge and memories passed from one generation
+      to the next.
+    </p>
+  </div>
+
+  <div class="pillar-list">
+
+    <article class="pillar reveal">
+      <div class="pillar-number">01</div>
+      <h3>Community</h3>
+      <p>
+        Family relationships, shared work, hospitality and community
+        gatherings help maintain social connections across generations.
+      </p>
+    </article>
+
+    <article class="pillar reveal">
+      <div class="pillar-number">02</div>
+      <h3>Language</h3>
+      <p>
+        Ladakh is home to several languages and local speech traditions.
+        Language carries stories, expressions, place names and memories
+        that may not be fully captured in written records.
+      </p>
+    </article>
+
+    <article class="pillar reveal">
+      <div class="pillar-number">03</div>
+      <h3>Belief &amp; Practice</h3>
+      <p>
+        Buddhist, Muslim and other community traditions contribute to
+        Ladakh's diverse religious and cultural landscape. Practices
+        differ across places and communities.
+      </p>
+    </article>
+
+    <article class="pillar reveal">
+      <div class="pillar-number">04</div>
+      <h3>Knowledge</h3>
+      <p>
+        Local knowledge of seasons, water, farming, food preservation
+        and building methods reflects generations of adaptation to the
+        Himalayan environment.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- 03 ATTIRE -->
+
+<section class="feature-grid">
+  <div class="feature-photo reveal">
+    <img src="images/culturedress.jpg"
+         alt="Ladakhi landscape"
+         loading="lazy">
+  </div>
+
+  <div class="feature-copy reveal">
+    <div class="section-label">03 — Traditional Attire</div>
+    <h2>Clothing with a <em>story.</em></h2>
+
+    <p class="body-copy">
+      Traditional clothing in Ladakh reflects the cold climate, local
+      materials, community customs and occasions for which garments
+      are worn.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      The goncha is a traditional long robe associated with Ladakhi
+      dress. Styles, fabrics and accessories can vary by region,
+      community, occasion and personal tradition.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      The perak is a distinctive traditional headdress associated
+      especially with Ladakhi women. Its form and the materials used
+      can carry cultural significance, including family and regional
+      associations.
+    </p>
+
+    <div class="small-note">
+      Traditional dress is not simply clothing. It can express identity,
+      craftsmanship and a connection to one's community.
+    </div>
+  </div>
+</section>
+
+<!-- 04 FOOD -->
+
+<section class="food">
+  <div class="section-heading reveal">
+    <div class="section-label">04 — Food &amp; Flavours</div>
+    <h2>A taste of <em>Ladakh.</em></h2>
+    <p class="body-copy">
+      Food reflects climate, available ingredients, local customs and
+      the warmth of sharing a meal. These dishes are familiar examples
+      of the region's culinary traditions, though recipes vary between
+      households and communities.
+    </p>
+  </div>
+
+  <div class="card-grid">
+
+    <article class="culture-card reveal">
+      <img src="images/buttertea.jpg"
+           alt="Ladakh landscape representing regional food traditions"
+           loading="lazy">
+      <div class="card-copy">
+        <div class="number">01 — WARMTH</div>
+        <h3>Butter Tea</h3>
+        <p>
+          A traditional drink prepared with tea and butter, often with
+          salt. It is associated with food customs in high-altitude
+          Himalayan communities.
+        </p>
+      </div>
+    </article>
+
+    <article class="culture-card reveal">
+      <img src="images/thukpa.jpg"
+           alt="Ladakh landscape representing regional cuisine"
+           loading="lazy">
+      <div class="card-copy">
+        <div class="number">02 — COMFORT</div>
+        <h3>Thukpa</h3>
+        <p>
+          A warming noodle soup found in Himalayan food traditions.
+          Ingredients and preparation differ between households and
+          local variations.
+        </p>
+      </div>
+    </article>
+
+    <article class="culture-card reveal">
+      <img src="images/skyu.jpg"
+           alt="Ladakh landscape representing local food culture"
+           loading="lazy">
+      <div class="card-copy">
+        <div class="number">03 — TRADITION</div>
+        <h3>Skyu</h3>
+        <p>
+          A traditional Ladakhi dish made with small pieces of dough
+          cooked with vegetables and liquid to create a hearty meal.
+          Recipes vary by family.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 05 MUSIC AND DANCE -->
+
+<section class="feature-grid">
+  <div class="feature-copy reveal">
+    <div class="section-label">05 — Music &amp; Dance</div>
+    <h2>When tradition finds its <em>voice.</em></h2>
+
+    <p class="body-copy">
+      Music and dance bring communities together during celebrations,
+      social gatherings and cultural events. Songs can preserve
+      memories, express shared experiences and connect generations.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      Traditional performances may feature local instruments, group
+      singing and coordinated movements. Their forms and meanings vary
+      across communities and occasions.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      The cham dances performed in some Buddhist monastery festivals
+      are distinct from community folk dances. Both are part of the
+      region's cultural life, but they serve different contexts.
+    </p>
+
+    <div class="small-note">
+      Some traditions are learned not from books, but by listening,
+      watching and participating.
+    </div>
+  </div>
+
+  <div class="feature-photo reveal">
+    <img src="images/danceofladakh.jpg"
+         alt="Ladakh's mountain landscape"
+         loading="lazy">
+  </div>
+</section>
+
+<!-- 06 FESTIVALS -->
+
+<section class="festivals">
+  <div class="festivals-content reveal">
+    <div class="section-label">06 — Festivals &amp; Gatherings</div>
+    <h2>Moments that bring people <em>together.</em></h2>
+
+    <p class="body-copy" style="margin-top:25px">
+      Festivals in Ladakh can be religious, seasonal or community-based.
+      They offer opportunities for prayer, performances, family
+      gatherings and the transmission of traditions.
+    </p>
+
+    <div class="festival-list">
+
+      <article class="festival-row">
+        <span>NEW YEAR</span>
+        <div>
+          <h3>Losar</h3>
+          <p>
+            Losar marks the New Year in several Himalayan cultural
+            traditions. Celebrations can include family visits,
+            special foods, prayers and local customs. Dates and
+            practices may vary.
+          </p>
+        </div>
+      </article>
+
+      <article class="festival-row">
+        <span>MONASTERY LIFE</span>
+        <div>
+          <h3>Monastery Festivals</h3>
+          <p>
+            Religious festivals at Ladakhi monasteries may feature
+            prayer ceremonies, traditional music and cham masked dances.
+            Each monastery has its own calendar and practices.
+          </p>
+        </div>
+      </article>
+
+      <article class="festival-row">
+        <span>COMMUNITY</span>
+        <div>
+          <h3>Local Gatherings</h3>
+          <p>
+            Weddings, seasonal celebrations and other community
+            gatherings bring people together through shared food,
+            music, dress and customs.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 07 CRAFT AND ARCHITECTURE -->
+
+<section class="clothing">
+  <div class="clothing-copy reveal">
+    <div class="section-label">07 — Craft &amp; Architecture</div>
+    <h2>Made by hand.<br><em>Rooted in place.</em></h2>
+
+    <p class="body-copy">
+      Ladakh's built heritage and handicrafts reflect local materials,
+      practical knowledge and artistic expression. Traditional
+      architecture also responds to cold winters, sunlight and the
+      conditions of a high-altitude environment.
+    </p>
+
+    <div class="craft-points">
+
+      <div class="craft-point">
+        <h3>Traditional Homes</h3>
+        <p>
+          Local building methods use materials and designs suited to
+          the climate, with regional differences in form and detail.
+        </p>
+      </div>
+
+      <div class="craft-point">
+        <h3>Textiles &amp; Weaving</h3>
+        <p>
+          Textiles, woollen garments and woven items reflect practical
+          needs as well as local craftsmanship.
+        </p>
+      </div>
+
+      <div class="craft-point">
+        <h3>Art &amp; Handicrafts</h3>
+        <p>
+          Decorative arts, religious artwork and locally made objects
+          express different aspects of Ladakh's cultural heritage.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="feature-photo reveal">
+    <img src="images/papu.jpg"
+         alt="Ladakhi landscape and traditional setting"
+         loading="lazy">
+  </div>
+</section>
+
+<!-- 08 CULTURE TODAY -->
+
+<section class="today">
+  <div class="reveal">
+    <div class="section-label">08 — Culture Today</div>
+    <h2>A heritage that continues to <em>evolve.</em></h2>
+  </div>
+
+  <div class="today-copy reveal">
+    <p class="body-copy">
+      Culture is not frozen in the past. Young people, changing
+      livelihoods, education, travel and technology all influence how
+      traditions are practised and shared.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      Tourism can create opportunities for local crafts, food and
+      cultural experiences, but traditions should be represented
+      respectfully and with the participation of local communities.
+    </p>
+
+    <br>
+
+    <p class="body-copy">
+      Languages, oral histories, traditional skills and historic
+      buildings deserve continued attention. Learning from elders,
+      documenting local stories and supporting genuine craftsmanship
+      are ways to help keep this heritage alive.
+    </p>
+
+    <div class="today-quote">
+      “Preserving culture means allowing its stories to be <span>lived,</span>
+      shared and passed on.”
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+
+<section class="closing reveal">
+  <div class="section-label">The Living Heritage</div>
+
+  <h2>To know Ladakh is to know its <em>people.</em></h2>
+
+  <p class="body-copy">
+    Behind every tradition is a community. Behind every song, a memory.
+    And behind every generation, the responsibility to carry forward
+    the stories that make a place unique.
+  </p>
+
+  <div class="closing-links">
+    <a href="trade-routes.html">
+      <small>← PREVIOUS SECTION</small>
+      <span>Trade Routes</span>
+    </a>
+
+    <a href="faith-legacy.html" style="text-align:right">
+      <small>NEXT SECTION →</small>
+      <span>Faith &amp; Legacy</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>LADAKH HERITAGE © 2026</span>
+  <span>DOCUMENTING PLACES · PRESERVING STORIES</span>
+</footer>
+
+<script>
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? '×' : '☰';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  });
+});
+
+/* SCROLL REVEAL */
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+  revealObserver.observe(element);
+});
+
+/* SOFT PAGE TRANSITIONS */
+
+document.querySelectorAll('a[href]').forEach(link => {
+  link.addEventListener('click', event => {
+    const href = link.getAttribute('href');
+
+    if (
+      !href ||
+      href.startsWith('#') ||
+      href.startsWith('http') ||
+      href.startsWith('mailto:') ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    document.body.classList.add('page-leaving');
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 180);
+  });
+});
+</script>
+
+</body>
+</html>

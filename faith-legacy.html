@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith & Legacy | Ladakh Heritage</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0c0d0c;
+  --panel: #141512;
+  --gold: #d8b77a;
+  --gold-light: #f0d7a6;
+  --text: #eee9df;
+  --muted: #aaa69c;
+  --line: rgba(216,183,122,.28);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  animation: enterPage .8s ease both;
+}
+
+@keyframes enterPage {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.page-leaving {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* NAVIGATION */
+
+nav {
+  height: 76px;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(12,13,12,.88);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  font-size: 29px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: .8px;
+  color: #d2cbbc;
+  padding: 9px 0;
+  transition: color .25s;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-light);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--gold);
+  padding: 8px 11px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 590px;
+  padding: 150px 7% 90px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(7,9,9,.96) 0%, rgba(7,9,9,.77) 43%, rgba(7,9,9,.12) 100%),
+    linear-gradient(0deg, rgba(12,13,12,.8), transparent 38%),
+    url('images/buddha.jpg') center 48% / cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--line);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 660px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(49px, 6vw, 82px);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -1.5px;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+}
+
+.hero p {
+  color: #ddd8ce;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 540px;
+}
+
+.hero-note {
+  margin-top: 29px;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+}
+
+.scroll-hint {
+  margin-top: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.scroll-hint span {
+  width: 42px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* INTRO STRIP */
+
+.intro-strip {
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  background: #11120f;
+}
+
+.intro-strip p {
+  max-width: 720px;
+  color: #c4beb2;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.intro-label {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+/* SECTION HEADINGS */
+
+.faith-section {
+  padding: 100px 7% 85px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 43px;
+}
+
+.section-number {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  border-right: 1px solid var(--line);
+  padding-right: 22px;
+  min-width: 68px;
+}
+
+.section-heading {
+  flex: 1;
+}
+
+.section-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(39px, 5vw, 60px);
+  line-height: 1.05;
+  color: var(--gold-light);
+}
+
+.section-heading .subtitle {
+  margin-top: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 10px;
+}
+
+.section-heading .description {
+  max-width: 800px;
+  margin-top: 18px;
+  color: #c9c4ba;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+/* FEATURE IMAGE AND TEXT */
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 350px;
+  border: 1px solid var(--line);
+  margin-bottom: 52px;
+  background: var(--panel);
+}
+
+.feature-image {
+  position: relative;
+  min-height: 350px;
+  overflow: hidden;
+  background: #25251f;
+}
+
+.feature-image img {
+  height: 100%;
+  min-height: 350px;
+  transition: transform .8s ease;
+}
+
+.feature-image:hover img {
+  transform: scale(1.04);
+}
+
+.feature-image::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.68));
+  pointer-events: none;
+}
+
+.image-label {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  z-index: 2;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+}
+
+.feature-copy {
+  padding: clamp(25px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-copy .small-label {
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.feature-copy h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 35px;
+  color: var(--gold-light);
+  margin-bottom: 18px;
+}
+
+.feature-copy p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #c8c3b9;
+  margin-bottom: 13px;
+}
+
+/* PLACE CARDS */
+
+.collection-heading {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 24px;
+}
+
+.collection-heading h3 {
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.collection-heading .rule {
+  height: 1px;
+  background: var(--line);
+  flex: 1;
+}
+
+.collection-heading span {
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.place-card {
+  background: #141512;
+  border: 1px solid rgba(216,183,122,.25);
+  overflow: hidden;
+  transition: transform .3s, border-color .3s;
+}
+
+.place-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.card-image {
+  height: 205px;
+  overflow: hidden;
+  background: #25251f;
+  position: relative;
+}
+
+.card-image img {
+  height: 100%;
+  transition: transform .6s ease;
+}
+
+.place-card:hover .card-image img {
+  transform: scale(1.06);
+}
+
+.card-copy {
+  padding: 20px 18px 22px;
+}
+
+.card-copy .location {
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+
+.card-copy h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.card-copy p {
+  color: #bdb8ae;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.card-index {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* QUOTE */
+
+.quote {
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  padding: 38px 30px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(12,13,12,.86), rgba(12,13,12,.91)),
+    url('images/nirvana.jpg') center / cover;
+}
+
+.quote .ornament {
+  color: var(--gold);
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.quote p {
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(25px, 3vw, 38px);
+  font-style: italic;
+}
+
+.quote small {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ENDING */
+
+.closing {
+  text-align: center;
+  padding: 95px 7%;
+  background:
+    linear-gradient(rgba(9,10,9,.76), rgba(9,10,9,.92)),
+    url('images/ladakhmap.jpg') center / cover;
+}
+
+.closing .eyebrow {
+  margin-bottom: 18px;
+}
+
+.closing h2 {
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 67px);
+  font-weight: 500;
+  margin-bottom: 17px;
+}
+
+.closing p {
+  color: #d0cbc0;
+  max-width: 650px;
+  margin: auto;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 27px;
+  margin-top: 35px;
+}
+
+.footer-links a {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  transition: color .2s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 24px 7%;
+  color: #888579;
+  font-size: 10px;
+  letter-spacing: .6px;
+  border-top: 1px solid var(--line);
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 9px; }
+  .brand { font-size: 19px; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-image { height: 240px; }
+}
+
+@media (max-width: 760px) {
+  nav { height: 68px; padding: 0 5%; }
+  .brand { font-size: 20px; }
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    padding: 18px 6% 25px;
+    background: rgba(12,13,12,.98);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 12px; width: 100%; padding: 10px 0; }
+
+  .hero {
+    min-height: 620px;
+    padding: 135px 7% 65px;
+    background-position: 62% center;
+  }
+
+  .hero h1 { font-size: 54px; }
+  .hero p { font-size: 13px; }
+
+  .intro-strip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .faith-section { padding: 70px 6% 60px; }
+  .section-top { gap: 15px; }
+  .section-number { min-width: 45px; padding-right: 13px; font-size: 26px; }
+  .section-heading h2 { font-size: 42px; }
+  .section-heading .description { font-size: 13px; }
+
+  .feature { grid-template-columns: 1fr; }
+  .feature-image, .feature-image img { min-height: 270px; height: 270px; }
+  .feature-copy { padding: 27px 24px; }
+  .feature-copy h3 { font-size: 31px; }
+
+  .cards { grid-template-columns: 1fr; gap: 20px; }
+  .card-image { height: 250px; }
+
+  .collection-heading { flex-wrap: wrap; }
+  .collection-heading h3 { font-size: 24px; }
+  .collection-heading span { width: 100%; }
+
+  .quote { padding: 32px 20px; }
+  .closing { padding: 75px 7%; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="brand" href="index.html">
+    <span class="brand-mark">▲</span>
+    <span>LADAKH HERITAGE</span>
+  </a>
+
+  <button class="menu-toggle" aria-label="Open navigation"
+    aria-expanded="false" aria-controls="navLinks">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">HOME</a>
+    <a href="explore.html">EXPLORE</a>
+    <a href="history.html">HISTORY</a>
+    <a href="origin.html">ORIGIN</a>
+    <a href="kingdoms.html">KINGDOMS</a>
+    <a href="trade-routes.html">TRADE ROUTES</a>
+    <a href="culture.html">CULTURE</a>
+    <a href="faith-legacy.html" class="active">FAITH & LEGACY</a>
+    <a href="gallery.html">GALLERY</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Ladakh Heritage · Faith & Legacy</div>
+    <h1>Faith Carved<br>Into the Mountains.</h1>
+    <p>
+      In Ladakh, religion is woven into the landscape and the lives
+      of its people. Buddhist monasteries rise above ancient villages,
+      while mosques serve communities whose traditions have shaped the
+      region for generations.
+    </p>
+    <div class="hero-note">Different beliefs. Shared mountains.</div>
+    <a href="#buddhism" class="scroll-hint">
+      <span></span> DISCOVER LADAKH'S FAITH <span></span>
+    </a>
+  </div>
+</header>
+
+<div class="intro-strip">
+  <div class="intro-label">A Living Heritage</div>
+  <p>
+    Ladakh's religious landscape reflects centuries of belief, learning,
+    travel and cultural exchange. Its monasteries and mosques are not
+    only places of worship, but also important parts of the region's
+    history, architecture and community life.
+  </p>
+</div>
+
+<!-- BUDDHISM -->
+
+<section class="faith-section" id="buddhism">
+  <div class="section-top reveal">
+    <div class="section-number">01</div>
+    <div class="section-heading">
+      <h2>Buddhism in Ladakh</h2>
+      <div class="subtitle">Compassion · Wisdom · The Middle Way</div>
+      <p class="description">
+        Tibetan Buddhism has had a deep influence on Ladakh's spiritual
+        and cultural life for centuries. Its teachings emphasise
+        compassion, wisdom, mindfulness and understanding the causes
+        of suffering. Prayer flags, chortens, sacred art and monastery
+        rituals are familiar features of many Ladakhi landscapes.
+        Monasteries, also known as gompas, serve as places of worship,
+        meditation, education and the preservation of traditional
+        knowledge. They remain active centres of religious life.
+      </p>
+    </div>
+  </div>
+
+  <div class="feature reveal">
+    <div class="feature-image">
+      <img
+        src="images/monks.jpg"
+        alt="Thiksey Monastery overlooking the Ladakh mountains"
+        loading="lazy">
+      <div class="image-label">monks</div>
+    </div>
+    <div class="feature-copy">
+      <div class="small-label">Faith and daily life</div>
+      <h3>A Tradition of Wisdom</h3>
+      <p>
+        Buddhist practice in Ladakh includes prayer, meditation,
+        study and acts of compassion. Monastic communities help
+        preserve religious texts, art, ceremonies and teachings
+        passed from one generation to the next.
+      </p>
+      <p>
+        Monasteries also connect spiritual life with village
+        communities through religious observances and annual
+        celebrations.
+      </p>
+    </div>
+  </div>
+
+  <div class="collection-heading reveal">
+    <h3>Major Monasteries</h3>
+    <div class="rule"></div>
+    <span>Centres of faith and learning</span>
+  </div>
+
+  <div class="cards">
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="images/hemis.jpg"
+          alt="Hemis Monastery in Ladakh" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Hemis · Near Leh</div>
+        <h4>Hemis Monastery</h4>
+        <p>
+          One of Ladakh's best-known monasteries, Hemis belongs to
+          the Drukpa lineage of Tibetan Buddhism. It is renowned
+          for its sacred art, thangkas and annual Hemis Tsechu
+          celebrations.
+        </p>
+        <span class="card-index">MONASTERY 01</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="images/thiksey.jpg"
+          alt="Thiksey Monastery on a hillside" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Indus Valley · East of Leh</div>
+        <h4>Thiksey Monastery</h4>
+        <p>
+          Founded in the 15th century, Thiksey is known for its
+          hilltop architecture, monastic community and impressive
+          statue of Maitreya Buddha.
+        </p>
+        <span class="card-index">MONASTERY 02</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="images/diskit.jpg"
+          alt="Diskit Monastery in Nubra Valley" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Nubra Valley</div>
+        <h4>Diskit Monastery</h4>
+        <p>
+          An important Buddhist centre in Nubra Valley, Diskit
+          overlooks the valley and is associated with the region's
+          religious history and the large Maitreya Buddha statue
+          nearby.
+        </p>
+        <span class="card-index">MONASTERY 03</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="images/alchi.jpg"
+          alt="Historic Alchi Monastery and its traditional architecture"
+          loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Alchi · Indus Valley</div>
+        <h4>Alchi Monastery</h4>
+        <p>
+          This historic monastic complex is celebrated for its
+          remarkable murals, sculptures and woodwork, which preserve
+          important evidence of early Himalayan and Kashmiri artistic
+          traditions.
+        </p>
+        <span class="card-index">MONASTERY 04</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="quote reveal">
+    <div class="ornament">✧</div>
+    <p>“A monastery is a home for prayer, learning and living tradition.”</p>
+    <small>
+      The spiritual and cultural importance of Ladakh's monastic heritage
+    </small>
+  </div>
+</section>
+
+<!-- ISLAM -->
+
+<section class="faith-section" id="islam">
+  <div class="section-top reveal">
+    <div class="section-number">02</div>
+    <div class="section-heading">
+      <h2>Islam in Ladakh</h2>
+      <div class="subtitle">Faith · Community · Service</div>
+      <p class="description">
+        Islam is an important part of Ladakh's religious and cultural
+        landscape, particularly in Kargil and in communities across Leh
+        and Nubra. Muslims in the region include communities with
+        distinct local histories and traditions. Islamic beliefs
+        emphasise the worship of one God, prayer, charity, compassion
+        and responsibility towards others. Mosques provide spaces
+        for congregational prayer, religious learning and community
+        gatherings. The history of Islam in Ladakh is also connected
+        with trade, travel and contact with neighbouring regions.
+      </p>
+    </div>
+  </div>
+
+  <div class="feature reveal">
+    <div class="feature-image">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Jama_Masjid_Leh.jpg"
+        alt="Jama Masjid in Leh, Ladakh" loading="lazy">
+      <div class="image-label">Jama Masjid, Leh</div>
+    </div>
+    <div class="feature-copy">
+      <div class="small-label">Faith and community</div>
+      <h3>A Place to Gather</h3>
+      <p>
+        The mosque holds an important place in Muslim community life.
+        It is a place for daily prayers and congregational worship,
+        particularly the Friday prayer, as well as religious learning
+        and shared observances.
+      </p>
+      <p>
+        Ladakh's Muslim communities have contributed to the region's
+        history, commerce, crafts and cultural life. Their mosques
+        form an important part of the built heritage of towns
+        and villages.
+      </p>
+    </div>
+  </div>
+
+  <div class="collection-heading reveal">
+    <h3>Major Mosques</h3>
+    <div class="rule"></div>
+    <span>Places of prayer and community</span>
+  </div>
+
+  <div class="cards">
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Jama_Masjid_Leh.jpg"
+          alt="Jama Masjid in the old town of Leh" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Leh · Main town</div>
+        <h4>Jama Masjid</h4>
+        <p>
+          Located in the old town of Leh, Jama Masjid is an important
+          mosque for the local Muslim community and a recognisable
+          part of the town's religious heritage.
+        </p>
+        <span class="card-index">MOSQUE 01</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Mosque_in_Kargil.jpg"
+          alt="Mosque architecture in Kargil" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Kargil</div>
+        <h4>Mosques of Kargil</h4>
+        <p>
+          Kargil has a significant Muslim population and a strong
+          tradition of religious community life. Its mosques and
+          imambaras reflect the area's varied Islamic traditions
+          and local architectural styles.
+        </p>
+        <span class="card-index">MOSQUE 02</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Mosque_Nubra_Valley.jpg"
+          alt="Mosque in Nubra Valley" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Nubra Valley</div>
+        <h4>Mosques of Nubra</h4>
+        <p>
+          Mosques in Nubra serve local communities across villages
+          shaped by centuries of travel, trade and cultural contact
+          along routes connecting Ladakh with neighbouring regions.
+        </p>
+        <span class="card-index">MOSQUE 03</span>
+      </div>
+    </article>
+
+    <article class="place-card reveal">
+      <div class="card-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Shah_Hamdan_Mosque_Leh.jpg"
+          alt="Shah Hamdan Mosque in Leh" loading="lazy">
+      </div>
+      <div class="card-copy">
+        <div class="location">Leh</div>
+        <h4>Shah Hamdan Mosque</h4>
+        <p>
+          Also associated with Leh's Islamic heritage, this place
+          of worship reflects the long-standing presence of Muslim
+          communities and their religious traditions in the region.
+        </p>
+        <span class="card-index">MOSQUE 04</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="quote reveal">
+    <div class="ornament">✧</div>
+    <p>“Faith lives not only in sacred buildings, but in the communities around them.”</p>
+    <small>
+      The continuing role of religious places in Ladakhi community life
+    </small>
+  </div>
+</section>
+
+<!-- CLOSING -->
+
+<section class="closing reveal">
+  <div class="eyebrow">The Living Heritage of Ladakh</div>
+  <h2>Different Beliefs.<br>Shared Mountains.</h2>
+  <p>
+    From hilltop monasteries to town mosques, Ladakh's sacred places
+    preserve stories of belief, art, community and cultural exchange.
+    Protecting them means protecting an important part of the region's
+    living heritage.
+  </p>
+
+  <div class="footer-links">
+    <a href="explore.html">EXPLORE LADAKH</a>
+    <a href="history.html">DISCOVER HISTORY</a>
+    <a href="culture.html">EXPERIENCE CULTURE</a>
+    <a href="gallery.html">VIEW GALLERY</a>
+  </div>
+</section>
+
+<footer>
+  <span>© LADAKH HERITAGE</span>
+  <span>HISTORY THAT CONNECTS US</span>
+  <a href="index.html">RETURN HOME ↑</a>
+</footer>
+
+<script>
+// Mobile navigation
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuButton.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', isOpen);
+  menuButton.textContent = isOpen ? '✕' : '☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.textContent = '☰';
+  });
+});
+
+// Reveal elements as they enter the screen
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add('visible'));
+}
+
+// Fade between local HTML pages
+document.querySelectorAll('a[href$=".html"]').forEach(link => {
+  link.addEventListener('click', event => {
+    const url = new URL(link.href, window.location.href);
+
+    if (
+      url.origin === window.location.origin &&
+      url.pathname !== window.location.pathname &&
+      !event.ctrlKey && !event.metaKey && !event.shiftKey &&
+      event.button === 0
+    ) {
+      event.preventDefault();
+      document.body.classList.add('page-leaving');
+
+      setTimeout(() => {
+        window.location.href = url.href;
+      }, 260);
+    }
+  });
+});
+
+// Show a readable fallback if a photo URL is unavailable
+document.querySelectorAll('.card-image img, .feature-image img').forEach(img => {
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+    img.parentElement.style.background =
+      'linear-gradient(135deg, #25251f, #11120f)';
+  });
+});
+</script>
+
+</body>
+</html>

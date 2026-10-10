@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The End Is Never The End — Ladakh Heritage</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --gold: #c8a96e;
+    --ivory: #f4efe5;
+    --black: #11100e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.ending-page {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse at center, #373027 0%, #171512 65%, #0b0b0a 100%);
+}
+
+/* PALACE ILLUSTRATION */
+
+.palace-image {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 65%;
+    opacity: 0.83;
+    filter: sepia(12%) contrast(1.04);
+    animation: palaceReveal 2s ease both, palaceFloat 18s ease-in-out 2s infinite alternate;
+}
+
+/* CINEMATIC OVERLAYS */
+
+.ending-page::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10, 10, 9, 0.65) 0%,
+            rgba(10, 10, 9, 0.12) 35%,
+            rgba(10, 10, 9, 0.12) 60%,
+            rgba(10, 10, 9, 0.92) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(10, 10, 9, 0.55),
+            transparent 50%,
+            rgba(10, 10, 9, 0.55)
+        );
+}
+
+.ending-page::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 18px;
+    border: 1px solid rgba(200, 169, 110, 0.28);
+    pointer-events: none;
+}
+
+/* TOP LABEL */
+
+.top-label {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 85%;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    animation: fadeUp 1.5s ease both;
+}
+
+/* MAIN TITLE */
+
+.ending-content {
+    width: 100%;
+    padding: 40px 24px;
+    text-align: center;
+    margin-top: 20vh;
+    animation: fadeUp 1.7s ease 0.2s both;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.3rem, 10vw, 9.5rem);
+    line-height: 0.82;
+    font-weight: 500;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: var(--ivory);
+    text-shadow: 0 5px 35px rgba(0, 0, 0, 0.65);
+}
+
+h1 span {
+    display: block;
+}
+
+h1 .gold-text {
+    color: var(--gold);
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.subtitle {
+    max-width: 420px;
+    margin: 30px auto 0;
+    color: rgba(244, 239, 229, 0.8);
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.9;
+    letter-spacing: 1px;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 55px;
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    animation: fadeUp 1.8s ease 0.5s both;
+}
+
+.bottom-note {
+    font-size: 9px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    color: rgba(244, 239, 229, 0.62);
+}
+
+.bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.bottom-links a {
+    text-decoration: none;
+    color: var(--ivory);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.bottom-links a:hover {
+    color: var(--gold);
+}
+
+.bottom-links .home-link {
+    color: var(--gold);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.65);
+    padding-bottom: 7px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes palaceReveal {
+    from {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    to {
+        opacity: 0.83;
+        transform: scale(1);
+    }
+}
+
+@keyframes palaceFloat {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.045);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .ending-page::after {
+        inset: 10px;
+    }
+
+    .top-label {
+        top: 32px;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .palace-image {
+        object-fit: contain;
+        object-position: center 48%;
+    }
+
+    .ending-content {
+        margin-top: 23vh;
+        padding: 20px 16px;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 13vw, 5.5rem);
+        letter-spacing: -1.5px;
+        line-height: 0.9;
+    }
+
+    h1 .gold-text {
+        margin-top: 10px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 4px;
+        margin-bottom: 18px;
+    }
+
+    .subtitle {
+        max-width: 290px;
+        font-size: 10px;
+        margin-top: 22px;
+    }
+
+    .bottom-area {
+        bottom: 35px;
+        padding: 0 22px;
+        flex-direction: column;
+        text-align: center;
+        gap: 22px;
+    }
+
+    .bottom-note {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .bottom-links {
+        gap: 24px;
+    }
+
+    .bottom-links a {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-height: 650px) {
+    .top-label {
+        top: 28px;
+    }
+
+    .ending-content {
+        margin-top: 12vh;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 9vw, 7rem);
+    }
+
+    .subtitle {
+        margin-top: 18px;
+    }
+
+    .bottom-area {
+        bottom: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="ending-page">
+
+    <img
+        class="palace-image"
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Palace_at_Leh,_1847.jpg?width=1800"
+        alt="Historical illustration of Leh Palace"
+    >
+
+    <div class="top-label">
+        Ladakh Heritage · A Living Legacy
+    </div>
+
+    <section class="ending-content">
+        <p class="eyebrow">Every story leaves a legacy</p>
+
+        <h1>
+            <span>End Is</span>
+            <span class="gold-text">Never The</span>
+            <span>End.</span>
+        </h1>
+
+        <p class="subtitle">
+            The pages may close, but the stories of Ladakh
+            continue to live through its people, its culture,
+            and the memories we carry forward.
+        </p>
+    </section>
+
+    <footer class="bottom-area">
+        <p class="bottom-note">
+            The past remains.<br>
+            The story continues.
+        </p>
+
+        <nav class="bottom-links">
+            <a href="gallery.html">The Archive</a>
+            <a href="index.html" class="home-link">Return Home ↗</a>
+        </nav>
+    </footer>
+
+</main>
+
+</body>
+</html>

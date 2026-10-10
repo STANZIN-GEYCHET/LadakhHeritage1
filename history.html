@@ -1,0 +1,1122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History of Ladakh | Ladakh Heritage</title>
+
+<style>
+
+
+
+/* ===== CINEMATIC SCROLL TRANSITIONS ===== */
+
+.history-section,
+.village-section,
+.closing {
+    opacity: 0;
+    transform: translateY(75px) scale(0.97);
+    filter: blur(6px);
+
+    transition:
+        opacity 900ms ease,
+        transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 900ms ease;
+
+    will-change: opacity, transform, filter;
+}
+
+.history-section.show,
+.village-section.show,
+.closing.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Individual cards rise in one after another */
+.history-card,
+.village-card {
+    transition:
+        opacity 800ms ease,
+        transform 850ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 350ms ease;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .history-section,
+    .village-section,
+    .closing,
+    .history-card,
+    .village-card {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+}
+
+
+
+
+/* CINEMATIC PAGE EXIT */
+body {
+    opacity: 1;
+    transition: opacity 350ms ease;
+}
+
+body.page-exit {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        transition: none;
+    }
+}
+
+
+
+/* =========================================
+   PREMIUM SCROLL REVEAL SYSTEM
+========================================= */
+
+/* Initial state: elements wait until they enter view */
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0);
+    transition:
+        opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Visible state */
+.reveal.show {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Stagger the four history cards */
+.history-grid .history-card:nth-child(1) {
+    --reveal-delay: 0ms;
+}
+
+.history-grid .history-card:nth-child(2) {
+    --reveal-delay: 120ms;
+}
+
+.history-grid .history-card:nth-child(3) {
+    --reveal-delay: 240ms;
+}
+
+.history-grid .history-card:nth-child(4) {
+    --reveal-delay: 360ms;
+}
+
+/* Stagger the two village cards */
+.village-grid .village-card:nth-child(1) {
+    --reveal-delay: 0ms;
+}
+
+.village-grid .village-card:nth-child(2) {
+    --reveal-delay: 180ms;
+}
+
+/* Mobile: keep the movement subtle */
+@media (max-width: 700px) {
+    .reveal {
+        transform: translate3d(0, 22px, 0);
+        transition-duration: 700ms;
+    }
+
+    .history-grid .history-card,
+    .village-grid .village-card {
+        --reveal-delay: 0ms;
+    }
+}
+
+/* Accessibility: don't force animation */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.show {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+
+/* =====================================
+   PREMIUM HISTORY CARD INTERACTIONS
+===================================== */
+
+.history-card,
+.village-card {
+    isolation: isolate;
+    border-radius: 2px;
+    transform: translateZ(0);
+    transition:
+        transform 650ms cubic-bezier(.2,.75,.25,1),
+        box-shadow 650ms ease,
+        outline-color 400ms ease;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+}
+
+.history-card img,
+.village-card img {
+    transform: scale(1.001);
+    transition:
+        transform 1.2s cubic-bezier(.2,.75,.25,1),
+        filter 800ms ease;
+    will-change: transform;
+}
+
+/* Cinematic image movement */
+.history-card:hover img,
+.village-card:hover img,
+.history-card:focus-visible img,
+.village-card:focus-visible img {
+    transform: scale(1.075);
+    filter: saturate(1.08) brightness(.92);
+}
+
+/* Gentle card lift */
+.history-card:hover,
+.village-card:hover,
+.history-card:focus-visible,
+.village-card:focus-visible {
+    transform: translateY(-7px);
+    box-shadow: 0 24px 55px rgba(0,0,0,.22);
+    outline-color: rgba(216,180,90,.65);
+}
+
+/* Richer cinematic overlay */
+.history-card::after,
+.village-card::after {
+    transition: background 650ms ease;
+}
+
+/* Golden action reveal */
+.card-action {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(14px);
+    letter-spacing: .7px;
+    transition:
+        opacity 400ms ease,
+        transform 500ms cubic-bezier(.2,.75,.25,1),
+        letter-spacing 400ms ease;
+}
+
+.history-card:hover .card-action,
+.village-card:hover .card-action,
+.history-card:focus-visible .card-action,
+.village-card:focus-visible .card-action {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 1.2px;
+}
+
+/* Slight title movement */
+.history-card h3,
+.village-title {
+    transition: transform 450ms ease;
+}
+
+.history-card:hover h3,
+.village-card:hover .village-title {
+    transform: translateY(-3px);
+}
+
+/* =====================================
+   PREMIUM SCROLLING NAVIGATION
+===================================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(16,19,18,.08);
+    transition:
+        background 350ms ease,
+        box-shadow 350ms ease,
+        padding 350ms ease;
+}
+
+nav.scrolled {
+    background: rgba(18,21,20,.88);
+    box-shadow: 0 8px 30px rgba(0,0,0,.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* Refined golden navigation underline */
+.nav-links a::after {
+    box-shadow: 0 0 10px rgba(216,180,90,.25);
+    transition: width 350ms ease;
+}
+
+/* =====================================
+   SCROLL REVEAL REFINEMENT
+===================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 850ms ease,
+        transform 850ms cubic-bezier(.2,.75,.25,1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Touchscreens: show the action without hover */
+@media (hover: none) {
+    .card-action {
+        opacity: 1;
+        transform: none;
+    }
+
+    .history-card:hover,
+    .village-card:hover {
+        transform: none;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .history-card,
+    .village-card,
+    .history-card img,
+    .village-card img,
+    .history-card h3,
+    .village-title,
+    .card-action,
+    .reveal,
+    nav,
+    .nav-links a::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .history-card:hover,
+    .village-card:hover,
+    .reveal {
+        transform: none;
+    }
+
+    .reveal {
+        opacity: 1;
+    }
+
+    .card-action {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f3ee;
+    color: #20211f;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVIGATION */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 26px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    color: white;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 27px;
+}
+
+.nav-links a {
+    position: relative;
+    padding-bottom: 7px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #d8b45a;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    min-height: 88vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px 9%;
+    color: white;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(10, 13, 15, 0.86),
+            rgba(10, 13, 15, 0.05) 80%
+        ),
+        url("images/leh-palace-leh-ladakh-1-attr-hero.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: riseIn 1.2s ease both;
+}
+
+.eyebrow {
+    color: #e4c477;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 8vw, 105px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.82);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 510px;
+}
+
+.hero-number {
+    position: absolute;
+    right: 7%;
+    bottom: 45px;
+    color: rgba(255,255,255,0.65);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 110px 9%;
+}
+
+.section-label {
+    color: #a58236;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.section-intro {
+    color: #6e706d;
+    line-height: 1.9;
+    max-width: 620px;
+    margin-top: 22px;
+    font-size: 14px;
+}
+
+/* HISTORY CARDS */
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 55px;
+}
+
+.history-card {
+    display: block;
+    position: relative;
+    min-height: 390px;
+    overflow: hidden;
+    background: #d7d0c3;
+    color: white;
+    text-decoration: none;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+.history-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+
+.history-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        0deg,
+        rgba(9,12,13,0.88),
+        rgba(9,12,13,0.02) 80%
+    );
+    transition: background 0.45s ease;
+}
+
+.history-card:hover img {
+    transform: scale(1.07);
+}
+
+.history-card:hover::after {
+    background: linear-gradient(
+        0deg,
+        rgba(9,12,13,0.96),
+        rgba(9,12,13,0.12) 85%
+    );
+}
+
+.history-card-content {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+    z-index: 1;
+}
+
+.number {
+    color: #e4c477;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.history-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 3vw, 39px);
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.history-card p {
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 400px;
+}
+
+/* SHARED CARD ACTION */
+.card-action {
+    display: inline-block;
+    margin-top: 17px;
+    color: #f0d28b;
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.history-card:hover .card-action,
+.history-card:focus-visible .card-action,
+.village-card:hover .card-action,
+.village-card:focus-visible .card-action {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.history-card:focus-visible,
+.village-card:focus-visible {
+    outline: 2px solid #d8b45a;
+    outline-offset: 4px;
+}
+
+/* VILLAGE ARCHIVE */
+.villages {
+    background: #1b201f;
+    color: white;
+}
+
+.villages .section-label {
+    color: #e4c477;
+}
+
+.villages .section-intro {
+    color: #b9bfba;
+}
+
+.village-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 55px;
+}
+
+.village-card {
+    display: block;
+    position: relative;
+    height: 440px;
+    overflow: hidden;
+    background: #343936;
+    color: white;
+    text-decoration: none;
+    isolation: isolate;
+    cursor: pointer;
+}
+
+.village-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+
+.village-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        0deg,
+        rgba(8,11,12,0.78),
+        rgba(8,11,12,0.02) 70%
+    );
+    transition: background 0.45s ease;
+}
+
+.village-card:hover img {
+    transform: scale(1.07);
+}
+
+.village-card:hover::after {
+    background: linear-gradient(
+        0deg,
+        rgba(8,11,12,0.96),
+        rgba(8,11,12,0.12) 85%
+    );
+}
+
+.village-overlay {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+    z-index: 1;
+}
+
+.village-number {
+    display: block;
+    color: #e4c477;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.village-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+}
+
+/* CLOSING */
+.closing {
+    padding: 115px 9%;
+    text-align: center;
+}
+
+.closing h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 5.5vw, 65px);
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.15;
+}
+
+.closing p {
+    max-width: 580px;
+    margin: 25px auto 0;
+    color: #6e706d;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+/* FOOTER */
+footer {
+    background: #111514;
+    color: #c8cbc7;
+    padding: 32px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #e4c477;
+    text-decoration: none;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    nav {
+        padding: 22px 5%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 100px 7% 75px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .hero-number {
+        display: none;
+    }
+
+    .section {
+        padding: 75px 7%;
+    }
+
+    .history-grid,
+    .village-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 35px;
+    }
+
+    .history-card {
+        min-height: 340px;
+    }
+
+    .village-card {
+        height: 370px;
+    }
+
+    .history-card-content,
+    .village-overlay {
+        left: 23px;
+        right: 23px;
+        bottom: 24px;
+    }
+
+    .closing {
+        padding: 80px 7%;
+    }
+
+    footer {
+        padding: 28px 7%;
+    }
+}
+
+/* TOUCH DEVICES: SHOW THE ACTION WITHOUT HOVER */
+@media (hover: none) {
+    .card-action {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .card-action {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">LADAKH.</div>
+
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="explore.html">EXPLORE</a>
+        <a href="history.html" class="active">HISTORY</a>
+        <a href="culture.html">CULTURE</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="ending.html">UPCOMING</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">THE HISTORICAL ARCHIVE</div>
+        <h1>A Land<br>Written in Time</h1>
+        <p>
+            Across mountain passes, ancient settlements and royal
+            strongholds, Ladakh's past continues to shape its identity.
+            Discover the stories held within this remarkable landscape.
+        </p>
+    </div>
+    <div class="hero-number">HISTORY / 01</div>
+</header>
+
+<main>
+
+<section class="section">
+    <div class="section-label">01 — HISTORICAL JOURNEY</div>
+    <h2>Discover the stories<br>behind the mountains.</h2>
+    <p class="section-intro">
+        Explore the settlements, kingdoms, trade connections and
+        traditions that have shaped Ladakh through generations.
+        Select a story to explore it in greater detail.
+    </p>
+
+    <div class="history-grid">
+
+        <a class="history-card reveal" href="origins.html">
+            <img src="images/origins.jpg"
+                 alt="Traditional Ladakhi settlement">
+
+            <div class="history-card-content">
+                <div class="number">01 / BEGINNINGS</div>
+                <h3>Ancient Origins - Story 1</h3>
+                <p>
+                    Discover early settlements and the ways communities
+                    adapted to life in the high Himalayas.
+                </p>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+        <a class="history-card reveal" href="kingdoms.html">
+            <img src="images/kingdoms.jpg"
+                 alt="Historic royal palace in Ladakh">
+
+            <div class="history-card-content">
+                <div class="number">02 / ROYAL LEGACY</div>
+                <h3>Major Kingdoms of Ladakh</h3>
+                <p>
+                    Explore the royal dynasties, historic palaces and
+                    political developments of the region.
+                </p>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+        <a class="history-card reveal" href="trade-routes.html">
+            <img src="images/routes.jpg"
+                 alt="Mountain route associated with historic trade">
+
+            <div class="history-card-content">
+                <div class="number">03 / CONNECTIONS</div>
+                <h3>Trade - Silk Route</h3>
+                <p>
+                    Learn how mountain routes connected Ladakh to
+                    neighbouring regions through trade and exchange.
+                </p>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+        <a class="history-card reveal" href="faith-legacy.html">
+            <img src="images/thiksey.jpg"
+                 alt="Historic Buddhist monastery in Ladakh">
+
+            <div class="history-card-content">
+                <div class="number">04 / FAITH & LEGACY</div>
+                <h3>Faith & Legacy</h3>
+                <p>
+                    Discover how religious traditions, monasteries and
+                    cultural practices continue to shape Ladakh.
+                </p>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<section class="section villages">
+    <div class="section-label">02 — VILLAGE ARCHIVES</div>
+    <h2>History lives<br>in every village.</h2>
+    <p class="section-intro">
+        Every settlement holds memories shaped by its people,
+        surroundings and generations of everyday life.
+    </p>
+
+    <div class="village-grid">
+
+        <a class="village-card reveal"
+           href="village-one.html"
+           aria-label="Open village archive one">
+
+            <img src="images/baltipeople.jpg"
+                 alt="Ladakh village landscape">
+
+            <div class="village-overlay">
+                <span class="village-number">ARCHIVE / 01</span>
+                <div class="village-title">Village Archive</div>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+        <a class="village-card reveal"
+           href="village-two.html"
+           aria-label="Open village archive two">
+
+            <img src="images/gustordiskit.jpg"
+                 alt="Traditional village life in Ladakh">
+
+            <div class="village-overlay">
+                <span class="village-number">ARCHIVE / 02</span>
+                <div class="village-title">Village Archive</div>
+                <span class="card-action">
+                    Open for more information ↗
+                </span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<section class="closing reveal">
+    <div class="section-label">THE CONTINUING STORY</div>
+    <h2>The past lives on in what we carry forward.</h2>
+    <p>
+        Preserving Ladakh's history means valuing its places,
+        memories, knowledge and traditions for future generations.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <div>© LADAKH HERITAGE</div>
+    <div>Preserving stories. Connecting generations.</div>
+    <a href="index.html">BACK TO HOME ↑</a>
+</footer>
+
+<script>
+
+/* ===== SCROLL-DRIVEN REVEAL ===== */
+
+(() => {
+    const sections = document.querySelectorAll(
+        '.history-section, .village-section, .closing'
+    );
+
+    const cards = document.querySelectorAll(
+        '.history-card, .village-card'
+    );
+
+    if (
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !('IntersectionObserver' in window)
+    ) {
+        sections.forEach(el => el.classList.add('show'));
+        cards.forEach(el => el.classList.add('show'));
+        document.querySelectorAll('.reveal').forEach(
+            el => el.classList.add('show')
+        );
+        return;
+    }
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    sections.forEach(el => observer.observe(el));
+    cards.forEach((el, index) => {
+        el.style.transitionDelay = `${(index % 4) * 100}ms`;
+        observer.observe(el);
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+})();
+
+
+
+const historyNav = document.querySelector("nav");
+
+function updateHistoryNav() {
+    historyNav.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+    );
+}
+
+window.addEventListener("scroll", updateHistoryNav, {
+    passive: true
+});
+
+updateHistoryNav();
+
+
+/* SMOOTH TRANSITION WHEN OPENING A CARD */
+document.querySelectorAll(
+    ".history-card, .village-card"
+).forEach(card => {
+    card.addEventListener("click", event => {
+        const destination = card.getAttribute("href");
+
+        if (
+            !destination ||
+            destination.startsWith("#") ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey ||
+            event.altKey
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+        document.body.classList.add("page-exit");
+
+        setTimeout(() => {
+            window.location.href = destination;
+        }, 350);
+    });
+});
+
+</script>
+
+</body>
+</html>
